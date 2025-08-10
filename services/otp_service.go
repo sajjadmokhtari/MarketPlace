@@ -1,0 +1,48 @@
+package services
+
+import (
+	"errors"
+	"log"
+	"math/rand"
+	"time"
+
+	"MarketPlace/cache"
+)
+
+var r = rand.New(rand.NewSource(time.Now().UnixNano()))
+
+func GenerateOTP() string {
+	otp := ""
+	for i := 0; i < 6; i++ {
+		otp += string('0' + rune(r.Intn(10)))
+	}
+	return otp
+}
+
+func SendOTP(phone string) error {
+	otp := GenerateOTP()
+	log.Printf("SendOTP called for phone: %s with OTP: %s\n", phone, otp)
+
+	err := cache.SetOTP(phone, otp)
+	if err != nil {
+		return err
+	}
+
+	// اینجا میتونی کد ارسال SMS بزنی
+	log.Printf("OTP برای شماره %s ارسال شد: %s\n", phone, otp)
+	return nil
+}
+
+func VerifyOTP(phone, otp string) error {
+	storedOtp, err := cache.GetOTP(phone)
+	if err != nil {
+		return errors.New("کد OTP منقضی شده یا موجود نیست")
+	}
+
+	if storedOtp != otp {
+		return errors.New("کد OTP نادرست است")
+	}
+
+	cache.DeleteOTP(phone)
+	return nil
+}
