@@ -1,92 +1,96 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ورود شماره موبایل</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap');
-
-  body {
-    font-family: 'Vazirmatn', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-  }
-
-  .container {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    width: 320px;
-    text-align: center;
-  }
-
-  h2 {
-    margin-bottom: 25px;
-    font-weight: 700;
-  }
-
-  input[type="text"] {
-    width: 100%;
-    padding: 14px 16px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    outline: none;
-    transition: box-shadow 0.3s ease;
-  }
-
-  input[type="text"]:focus {
-    box-shadow: 0 0 8px #a29bfe;
-  }
-
-  button {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    background: #6c5ce7;
-    font-size: 18px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: 600;
-  }
-
-  button:hover {
-    background: #5a4bcf;
-  }
-
-  .message {
-    margin-top: 15px;
-    min-height: 24px;
-    font-weight: 600;
-  }
-
-  .message.success {
-    color: #00b894;
-  }
-
-  .message.error {
-    color: #d63031;
-  }
-
-  /* Responsive */
-  @media (max-width: 400px) {
-    .container {
-      width: 90%;
-      padding: 30px 20px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ورود شماره موبایل</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
+  <style>
+    /* استایل‌ها همون قبلی هستن، نیازی به تغییر نیست */
+    body {
+      font-family: 'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
     }
-  }
-</style>
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      width: 320px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+      box-shadow: 0 0 8px #a29bfe;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #6c5ce7;
+      font-size: 18px;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background: #5a4bcf;
+    }
+
+    .message {
+      margin-top: 15px;
+      min-height: 24px;
+      font-weight: 600;
+    }
+
+    .message.success {
+      color: #00b894;
+    }
+
+    .message.error {
+      color: #d63031;
+    }
+
+    #otpSection {
+      display: none;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 400px) {
+      .container {
+        width: 90%;
+        padding: 30px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -94,55 +98,75 @@
   <h2>ورود شماره موبایل</h2>
   <input type="text" id="phone" placeholder="مثال: 09123456789" />
   <button id="submitBtn">ارسال</button>
+
+  <div id="otpSection">
+    <input type="text" id="otp" placeholder="کد ارسال شده را وارد کنید " />
+    <button id="verifyBtn">تأیید</button>
+  </div>
+
   <div class="message" id="message"></div>
 </div>
 
 <script>
-  const phoneInput = document.getElementById('phone');
-  const submitBtn = document.getElementById('submitBtn');
-  const messageDiv = document.getElementById('message');
+  const phoneInput = document.getElementById("phone");
+  const submitBtn = document.getElementById("submitBtn");
+  const otpSection = document.getElementById("otpSection");
+  const verifyBtn = document.getElementById("verifyBtn");
+  const otpInput = document.getElementById("otp");
+  const messageBox = document.getElementById("message");
 
-  submitBtn.addEventListener('click', async () => {
+  submitBtn.addEventListener("click", async () => {
     const phone = phoneInput.value.trim();
-    messageDiv.textContent = '';
-    messageDiv.className = 'message';
-
-    if (!phone) {
-      messageDiv.textContent = 'شماره موبایل را وارد کنید.';
-      messageDiv.classList.add('error');
-      return;
-    }
+    if (!phone) return showMessage("شماره را وارد کنید", "error");
 
     try {
-      const response = await fetch('/api/check-phone', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/api/send-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone })
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.valid) {
-        messageDiv.textContent = 'شماره موبایل معتبر است! کد OTP ارسال شد.';
-        messageDiv.classList.add('success');
-
-        // اینجا می‌تونی درخواست ارسال OTP رو هم بزنی
-        await fetch('/api/send-otp', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ phone })
-        });
-
+      const data = await res.json();
+      if (res.ok && data.valid) {
+        showMessage(data.message, "success");
+        otpSection.style.display = "block";
       } else {
-        messageDiv.textContent = data.message || 'شماره موبایل نامعتبر است.';
-        messageDiv.classList.add('error');
+        showMessage(data.message || "خطا در ارسال", "error");
       }
-    } catch (error) {
-      messageDiv.textContent = 'خطا در ارسال درخواست.';
-      messageDiv.classList.add('error');
+    } catch (err) {
+      showMessage("ارتباط با سرور برقرار نشد", "error");
     }
   });
+
+  verifyBtn.addEventListener("click", async () => {
+    const phone = phoneInput.value.trim();
+    const otp = otpInput.value.trim();
+    if (!otp) return showMessage("کد را وارد کنید", "error");
+
+    try {
+      const res = await fetch("/api/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone, otp })
+      });
+
+      const data = await res.json();
+      if (res.ok && data.valid) {
+        showMessage(data.message, "success");
+      } else {
+        showMessage(data.message || "کد اشتباه است", "error");
+      }
+    } catch (err) {
+      showMessage("ارتباط با سرور برقرار نشد", "error");
+    }
+  });
+
+  function showMessage(msg, type) {
+    messageBox.textContent = msg;
+    messageBox.className = `message ${type}`;
+  }
 </script>
+
 
 </body>
 </html>
