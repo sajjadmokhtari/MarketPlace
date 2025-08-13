@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>داشبورد | MarketPlace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg1:#667eea;            /* بنفش گرادیان */
+      --bg2:#764ba2;
+      --panel: rgba(255,255,255,.14);
+      --panel-2: rgba(255,255,255,.10);
+      --border: rgba(255,255,255,.22);
+      --text:#ffffff;
+      --muted: rgba(255,255,255,.8);
+
+      --btn:#10b981;            /* دکمه سفید */
+      --btn-text:#4b3fd1;       /* متن بنفش روی دکمه */
+      --btn-hover:#f3f4ff;
+
+      --danger:#ef4444;         /* خروج قرمز */
+      --danger-hover:#dc2626;
+
+      --chip-green:#34d399;
+      --chip-green-bg:rgba(16,185,129,.14);
+      --chip-amber:#fbbf24;
+      --chip-amber-bg:rgba(245,158,11,.14);
+      --chip-muted:#e2e8f0;
+      --chip-muted-bg:rgba(226,232,240,.14);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color:var(--text);
+    }
+
+    /* Header */
+    .header{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 20px;border-bottom:1px solid var(--border);
+      position:sticky;top:0;background:rgba(255,255,255,.08);backdrop-filter: blur(8px);
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:#10b981;box-shadow:0 0 10px #fff8}
+    .actions{display:flex;align-items:center;gap:10px}
+
+    /* Buttons */
+    .btn{
+      border:1px solid transparent;cursor:pointer;border-radius:10px;
+      font-weight:700;letter-spacing:.2px;
+      background:var(--btn);color:var(--btn-text);
+      padding:10px 14px;text-decoration:none;display:inline-block;
+      transition:background .15s,border-color .15s,opacity .15s,transform .05s;
+    }
+    .btn:hover{background:var(--btn-hover)}
+    .btn:active{transform:translateY(1px)}
+
+    .btn-danger{
+      background:var(--danger);color:#fff;border-color:transparent;
+    }
+    .btn-danger:hover{background:var(--danger-hover)}
+
+    .chip-link{
+      color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:10px;
+    }
+    .chip-link:hover{background:rgba(255,255,255,.1);color:#fff}
+
+    /* Layout */
+    .container{max-width:1100px;margin:24px auto;padding:0 16px}
+
+    /* Stat cards */
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
+    @media (max-width: 900px){ .grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 520px){ .grid{grid-template-columns:1fr} }
+
+    .card{
+      background:var(--panel);border:1px solid var(--border);
+      border-radius:16px;padding:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.12) inset, 0 6px 16px rgba(0,0,0,.08);
+    }
+    .stat .label{color:var(--muted);font-size:13px;margin-bottom:8px}
+    .stat .value{font-size:22px;font-weight:800;letter-spacing:.2px}
+    .stat .hint{color:var(--muted);font-size:12px;margin-top:6px}
+
+    /* Toolbar */
+    .toolbar{
+      display:flex;gap:10px;align-items:center;margin:20px 0;flex-wrap:wrap
+    }
+    .input, .select{
+      background:rgba(255,255,255,.95);border:1px solid rgba(255,255,255,.7);
+      color:#1f2937;padding:10px 12px;border-radius:12px;outline:none;
+    }
+    .input{min-width:260px;flex:1}
+    .select{min-width:160px}
+
+    /* Table */
+    .table{width:100%;border-collapse:separate;border-spacing:0 12px}
+    .table thead th{
+      text-align:right;color:var(--muted);font-weight:700;font-size:13px;padding:6px 10px;
+    }
+    .row{
+      background:var(--panel-2);
+      border:1px solid var(--border);border-radius:14px;
+      box-shadow: 0 6px 16px rgba(0,0,0,.08);
+    }
+    .row td{padding:12px 10px;vertical-align:middle}
+
+    .thumb{
+      width:54px;height:54px;border-radius:12px;background:rgba(255,255,255,.18);border:1px solid var(--border);
+      display:flex;align-items:center;justify-content:center;font-size:20px
+    }
+    .title{font-weight:700}
+    .muted{color:var(--muted);font-size:12px}
+
+    .status{padding:6px 10px;border-radius:999px;font-size:12px;display:inline-block}
+    .st-active{background:var(--chip-green-bg);color:var(--chip-green)}
+    .st-pending{background:var(--chip-amber-bg);color:var(--chip-amber)}
+    .st-paused{background:var(--chip-muted-bg);color:var(--chip-muted)}
+    .price{font-weight:800}
+
+    .ops{display:flex;gap:8px}
+    .op{
+      border:1px solid rgba(255,255,255,.35);background:#fff;color:var(--btn-text);
+      padding:8px 10px;border-radius:10px;cursor:pointer;font-size:12px;font-weight:700;
+    }
+    .op:hover{background:var(--btn-hover)}
+
+    /* Section title */
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin:22px 0 10px}
+    .section-title h3{margin:0;font-size:16px}
+
+    /* Empty state */
+    .empty{
+      text-align:center;color:var(--muted);padding:32px;border:1px dashed var(--border);
+      border-radius:14px;background:rgba(255,255,255,.08)
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>MarketPlace</span>
+    </div>
+    <div class="actions">
+      <a class="btn" href="/order">+ ثبت سفارش</a>
+      <a class="btn btn-danger" href="/logout">خروج</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Quick stats -->
+    <div class="grid">
+      <div class="card stat">
+        <div class="label">آگهی‌های فعال</div>
+        <div class="value" id="stat-active">3</div>
+        <div class="hint">قابل نمایش برای خریداران</div>
+      </div>
+      <div class="card stat">
+        <div class="label">در انتظار تأیید</div>
+        <div class="value" id="stat-pending">1</div>
+        <div class="hint">معمولاً کمتر از ۱ ساعت</div>
+      </div>
+      <div class="card stat">
+        <div class="label">پیام‌های خوانده‌نشده</div>
+        <div class="value" id="stat-unread">2</div>
+        <div class="hint">از گفتگوهای خریداران</div>
+      </div>
+      <div class="card stat">
+        <div class="label">بازدید این هفته</div>
+        <div class="value" id="stat-views">128</div>
+        <div class="hint">مجموع همه آگهی‌ها</div>
+      </div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <input class="input" id="q" type="search" placeholder="جستجو در آگهی‌های شما..." />
+      <select class="select" id="status">
+        <option value="">همه وضعیت‌ها</option>
+        <option value="active">فعال</option>
+        <option value="pending">در انتظار</option>
+        <option value="paused">متوقف</option>
+      </select>
+      <select class="select" id="sort">
+        <option value="updated_desc">آخرین به‌روزرسانی</option>
+        <option value="price_asc">قیمت: کم به زیاد</option>
+        <option value="price_desc">قیمت: زیاد به کم</option>
+      </select>
+    </div>
+
+    <!-- Listings -->
+    <div class="section-title">
+      <h3>آگهی‌های شما</h3>
+      <a class="chip-link" href="/new-listing">+ آگهی جدید</a>
+    </div>
+
+    <table class="table" id="listings-table">
+      <thead>
+        <tr>
+          <th style="width:70px">کالا</th>
+          <th>عنوان</th>
+          <th>قیمت</th>
+          <th>وضعیت</th>
+          <th>به‌روزرسانی</th>
+          <th>عملیات</th>
+        </tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+
+    <div class="empty" id="empty" style="display:none">
+      هنوز آگهی‌ای ثبت نکرده‌ای. از «ثبت آگهی جدید» شروع کن.
+    </div>
+  </main>
+
+  <script>
+    // نمونه داده (بعداً از API خودت پرش کن)
+    const data = [
+      { id:1, title:'آیفون 11 مشکی 128', price:'27,500,000', status:'active', updated:'۲ روز پیش', icon:'📱' },
+      { id:2, title:'کتونی نایک اورجینال', price:'3,200,000', status:'pending', updated:'۳ ساعت پیش', icon:'👟' },
+      { id:3, title:'مانیتور 27 اینچ IPS', price:'9,800,000', status:'paused', updated:'یک هفته پیش', icon:'🖥️' },
+    ];
+
+    const rowsEl = document.getElementById('rows');
+    const emptyEl = document.getElementById('empty');
+    const qEl = document.getElementById('q');
+    const statusEl = document.getElementById('status');
+    const sortEl = document.getElementById('sort');
+
+    function render(list){
+      rowsEl.innerHTML = '';
+      if(!list.length){
+        emptyEl.style.display = 'block';
+        return;
+      }
+      emptyEl.style.display = 'none';
+
+      list.forEach(item=>{
+        const tr = document.createElement('tr');
+        tr.className = 'row';
+        tr.innerHTML = `
+          <td><div class="thumb">${item.icon || '📦'}</div></td>
+          <td>
+            <div class="title">${item.title}</div>
+            <div class="muted">#${item.id}</div>
+          </td>
+          <td class="price">${item.price} تومان</td>
+          <td>
+            <span class="status ${item.status==='active'?'st-active':item.status==='pending'?'st-pending':'st-paused'}">
+              ${item.status==='active'?'فعال':item.status==='pending'?'در انتظار':'متوقف'}
+            </span>
+          </td>
+          <td class="muted">${item.updated}</td>
+          <td>
+            <div class="ops">
+              <button class="op" onclick="edit(${item.id})">ویرایش</button>
+              <button class="op" onclick="toggle(${item.id})">${item.status==='paused'?'فعال‌سازی':'توقف'}</button>
+              <button class="op" onclick="removeItem(${item.id})" style="background:#fff;color:#b91c1c;border-color:rgba(255,255,255,.35)">حذف</button>
+            </div>
+          </td>
+        `;
+        rowsEl.appendChild(tr);
+      });
+    }
+
+    function applyFilters(){
+      let list = [...data];
+      const q = qEl.value.trim();
+      const st = statusEl.value;
+
+      if(q) list = list.filter(i => i.title.includes(q));
+      if(st) list = list.filter(i => i.status === st);
+
+      switch(sortEl.value){
+        case 'price_asc':
+          list.sort((a,b)=> num(a.price)-num(b.price));break;
+        case 'price_desc':
+          list.sort((a,b)=> num(b.price)-num(a.price));break;
+        default:
+          // updated_desc: فعلاً ترتیب همان داده‌ها
+          break;
+      }
+      render(list);
+    }
+
+    function num(v){ return +v.replace(/[, ]/g,''); }
+
+    // عملیات — بعداً با API خودت وصل کن
+    function edit(id){ console.log('edit', id); /* window.location.href = '/edit-listing?id='+id */ }
+    function toggle(id){
+      const idx = data.findIndex(x=>x.id===id);
+      if(idx>-1){
+        data[idx].status = data[idx].status==='paused'?'active':'paused';
+        applyFilters();
+      }
+    }
+    function removeItem(id){
+      const i = data.findIndex(x=>x.id===id);
+      if(i>-1){ data.splice(i,1); applyFilters(); }
+    }
+
+    qEl.addEventListener('input', applyFilters);
+    statusEl.addEventListener('change', applyFilters);
+    sortEl.addEventListener('change', applyFilters);
+
+    // اولین رندر
+    applyFilters();
+  </script>
+</body>
+</html>

@@ -137,29 +137,30 @@
       showMessage("ارتباط با سرور برقرار نشد", "error");
     }
   });
+verifyBtn.addEventListener("click", async () => {
+  const phone = phoneInput.value.trim();
+  const otp = otpInput.value.trim();
+  if (!otp) return showMessage("کد را وارد کنید", "error");
 
-  verifyBtn.addEventListener("click", async () => {
-    const phone = phoneInput.value.trim();
-    const otp = otpInput.value.trim();
-    if (!otp) return showMessage("کد را وارد کنید", "error");
+  try {
+    const res = await fetch("/api/verify-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ phone, otp })
+    });
 
-    try {
-      const res = await fetch("/api/verify-otp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, otp })
-      });
-
-      const data = await res.json();
-      if (res.ok && data.valid) {
-        showMessage(data.message, "success");
-      } else {
-        showMessage(data.message || "کد اشتباه است", "error");
-      }
-    } catch (err) {
-      showMessage("ارتباط با سرور برقرار نشد", "error");
+    const data = await res.json();
+    if (res.ok && data.valid) {
+      showMessage(data.message, "success");
+      window.location.href = "/dashboard"; // ✅ این خط هدایت
+    } else {
+      showMessage(data.message || "کد اشتباه است", "error");
     }
-  });
+  } catch (err) {
+    showMessage("ارتباط با سرور برقرار نشد", "error");
+  }
+});
+
 
   function showMessage(msg, type) {
     messageBox.textContent = msg;

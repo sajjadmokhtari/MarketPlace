@@ -3,18 +3,27 @@ package main
 import (
 	"MarketPlace/api/router"
 	"MarketPlace/cache"
+	"MarketPlace/data/db"
+	"MarketPlace/data/db/migration"
 	"log"
-	"net/http"
 )
 
 func main() {
+	// اتصال به DB
+	if err := db.InitDb(); err != nil {
+		log.Fatalf("❌ failed to connect to database: %v", err)
+	}
 
-	// راه‌اندازی Redis و Router
+	// مهاجرت و داده‌های پیش‌فرض
+	migration.Up_1()
+
+	// راه‌اندازی Redis
 	cache.InitRedis()
-	router.SetupRoutes()
 
+	// ثبت مسیرها و گرفتن Engine
+	r := router.SetupRoutes()
+
+	// اجرای سرور Gin
 	log.Println("🚀 سرور روی پورت 8080 اجرا شد")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	log.Fatal(r.Run(":8080"))
 }
-
-// اضافه کن بالا
