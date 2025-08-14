@@ -9,17 +9,25 @@ import (
 func SetupRoutes() *gin.Engine {
 	r := gin.Default()
 
-	// سرو کردن فایل‌های استاتیک
+	// سرو کردن فایل‌های استاتیک (CSS, JS, تصاویر)
 	r.Static("/static", "./frontend")
+	r.Static("/uploads", "./uploads")
 
 	// API ها
-	r.POST("/api/check-phone", handler.CheckPhoneHandler)
-	r.POST("/api/send-otp", handler.SendOtpHandler)
-	r.POST("/api/verify-otp", handler.VerifyOtpHandler)
+	api := r.Group("/api")
+	{
+		api.POST("/check-phone", handler.CheckPhoneHandler)
+		api.POST("/send-otp", handler.SendOtpHandler)
+		api.POST("/verify-otp", handler.VerifyOtpHandler)
 
-	// داده‌ها
-	r.GET("/api/categories", handler.GetCategories)
-	r.GET("/api/cities", handler.GetCities)
+		// ثبت و گرفتن آگهی‌ها
+		api.POST("/listings", handler.CreateListingHandler)
+		api.GET("/listings", handler.GetListingsHandler)
+
+		// داده‌ها
+		api.GET("/categories", handler.GetCategories)
+		api.GET("/cities", handler.GetCities)
+	}
 
 	// صفحات HTML
 	r.GET("/", func(c *gin.Context) {
@@ -30,6 +38,9 @@ func SetupRoutes() *gin.Engine {
 	})
 	r.GET("/order", func(c *gin.Context) {
 		c.File("./frontend/order.html")
+	})
+	r.GET("/listings", func(c *gin.Context) {
+		c.File("./frontend/listings.html")
 	})
 
 	return r

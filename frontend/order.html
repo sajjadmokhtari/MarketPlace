@@ -6,89 +6,86 @@
 <title>ثبت آگهی جدید | MarketPlace</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: 'Vazirmatn', Tahoma, sans-serif;
-    background: #f0f2f5;
-    margin: 0;
-    padding: 0;
+  body { 
+    font-family: 'Vazirmatn', Tahoma, sans-serif; 
+    background: #f0f2f5; 
+    margin: 0; 
+    padding: 0; 
   }
-  .container {
-    max-width: 600px;
-    margin: 50px auto;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  .container { 
+    max-width: 600px; 
+    margin: 50px auto; 
+    background: #fff; 
+    padding: 30px; 
+    border-radius: 16px; 
+    box-shadow: 0 8px 30px rgba(0,0,0,0.05); 
   }
-  h1 {
-    text-align: center;
-    font-size: 24px;
+  .back-btn {
+    display: inline-block;
     margin-bottom: 20px;
-    color: #111827;
-  }
-  label {
-    display: block;
-    margin-top: 20px;
-    font-weight: 600;
-    color: #374151;
-  }
-  input[type="text"], input[type="number"], input[type="file"], textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 6px;
-    border-radius: 12px;
-    border: 1px solid #d1d5db;
-    font-size: 15px;
-    background: #f9fafb;
-    transition: border 0.3s;
-  }
-  input:focus, textarea:focus {
-    border-color: #3b82f6;
-    outline: none;
-  }
-  textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
-  button {
-    margin-top: 30px;
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 12px;
-    background: #3b82f6;
-    color: #fff;
-    cursor: pointer;
+    padding: 8px 14px;
+    background: #6d28d9; /* بنفش */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
     transition: background 0.3s;
   }
-  button:hover {
-    background: #2563eb;
+  .back-btn:hover {
+    background: #5b21b6;
   }
-  /* Custom dropdown */
-  .custom-select {
-    position: relative;
-    margin-top: 6px;
+  h1 { 
+    text-align: center; 
+    font-size: 24px; 
+    margin-bottom: 20px; 
+    color: #111827; 
   }
-  .custom-select select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 100%;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid #d1d5db;
-    background: #f9fafb url('data:image/svg+xml;utf8,<svg fill="gray" height="12" viewBox="0 0 24 24" width="12" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat;
-    background-position: right 12px center;
-    background-size: 12px;
-    cursor: pointer;
-    font-size: 15px;
+  label { 
+    display: block; 
+    margin-top: 20px; 
+    font-weight: 600; 
+    color: #374151; 
+  }
+  input[type="text"], input[type="number"], input[type="file"], textarea, select { 
+    width: 100%; 
+    padding: 12px; 
+    margin-top: 6px; 
+    border-radius: 12px; 
+    border: 1px solid #d1d5db; 
+    font-size: 15px; 
+    background: #f9fafb; 
+  }
+  input:focus, textarea:focus, select:focus { 
+    border-color: #3b82f6; 
+    outline: none; 
+  }
+  textarea { 
+    min-height: 120px; 
+    resize: vertical; 
+  }
+  button { 
+    margin-top: 30px; 
+    width: 100%; 
+    padding: 14px; 
+    font-size: 16px; 
+    font-weight: 700; 
+    border: none; 
+    border-radius: 12px; 
+    background: #3b82f6; 
+    color: #fff; 
+    cursor: pointer; 
+    transition: background 0.3s; 
+  }
+  button:hover { 
+    background: #2563eb; 
   }
 </style>
 </head>
 <body>
 <div class="container">
+  <!-- دکمه بازگشت به داشبورد -->
+  <a href="dashboard.html" class="back-btn">← بازگشت به داشبورد</a>
+  
   <h1>ثبت آگهی جدید</h1>
   <form id="listingForm">
     <label for="title">عنوان آگهی</label>
@@ -98,18 +95,14 @@
     <input type="number" id="price" name="price" required>
 
     <label for="city">شهر</label>
-    <div class="custom-select">
-      <select id="city" name="city" required>
-        <option value="">در حال بارگذاری...</option>
-      </select>
-    </div>
+    <select id="city" name="city" required>
+      <option value="">در حال بارگذاری...</option>
+    </select>
 
     <label for="category">دسته‌بندی</label>
-    <div class="custom-select">
-      <select id="category" name="category" required>
-        <option value="">در حال بارگذاری...</option>
-      </select>
-    </div>
+    <select id="category" name="category" required>
+      <option value="">در حال بارگذاری...</option>
+    </select>
 
     <label for="image">عکس محصول</label>
     <input type="file" id="image" name="image" accept="image/*" required>
@@ -122,48 +115,55 @@
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", async () => {
+async function loadSelects() {
   const citySelect = document.getElementById("city");
   const categorySelect = document.getElementById("category");
 
   try {
-    const cityRes = await fetch("/api/cities");
-    const cities = await cityRes.json();
-    citySelect.innerHTML = '<option value="">انتخاب کنید</option>';
-    cities.forEach(city => {
-      const option = document.createElement("option");
-      option.value = city.Name;
-      option.textContent = city.Name;
-      citySelect.appendChild(option);
-    });
+    const [citiesRes, categoriesRes] = await Promise.all([
+      fetch("/api/cities"),
+      fetch("/api/categories")
+    ]);
+    const cities = await citiesRes.json();
+    const categories = await categoriesRes.json();
 
-    const categoryRes = await fetch("/api/categories");
-    const categories = await categoryRes.json();
+    citySelect.innerHTML = '<option value="">انتخاب کنید</option>';
+    cities.forEach(city => citySelect.add(new Option(city.Name, city.Name)));
+
     categorySelect.innerHTML = '<option value="">انتخاب کنید</option>';
-    categories.forEach(cat => {
-      const option = document.createElement("option");
-      option.value = cat.Name;
-      option.textContent = cat.Name;
-      categorySelect.appendChild(option);
-    });
+    categories.forEach(cat => categorySelect.add(new Option(cat.Name, cat.Name)));
 
   } catch(err) {
     console.error("خطا در دریافت داده‌ها:", err);
     citySelect.innerHTML = '<option value="">خطا در بارگذاری</option>';
     categorySelect.innerHTML = '<option value="">خطا در بارگذاری</option>';
   }
-});
+}
 
-document.getElementById('listingForm').addEventListener('submit', function(e) {
+document.addEventListener("DOMContentLoaded", loadSelects);
+
+document.getElementById('listingForm').addEventListener('submit', async function(e) {
   e.preventDefault();
   const formData = new FormData(this);
-  console.log('عنوان:', formData.get('title'));
-  console.log('قیمت:', formData.get('price'));
-  console.log('شهر:', formData.get('city'));
-  console.log('دسته:', formData.get('category'));
-  console.log('عکس:', formData.get('image'));
-  console.log('توضیحات:', formData.get('description'));
-  alert('آگهی شما ثبت شد! (فعلاً فقط تست)');
+
+  try {
+    const res = await fetch("/api/listings", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();
+
+    if(res.ok) {
+      alert(data.message || "آگهی با موفقیت ثبت شد!");
+      this.reset();
+    } else {
+      alert(data.message || "خطا در ثبت آگهی!");
+    }
+  } catch(err) {
+    console.error(err);
+    alert("خطا در ارسال درخواست به سرور!");
+  }
 });
 </script>
 </body>
