@@ -6,9 +6,17 @@
 <title>ثبت آگهی جدید | MarketPlace</title>
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --purple1: #6d28d9;
+    --purple2: #9333ea;
+    --purple-dark: #5b21b6;
+    --bg-light: #f9fafb;
+    --text-dark: #111827;
+    --border-color: #d1d5db;
+  }
   body { 
     font-family: 'Vazirmatn', Tahoma, sans-serif; 
-    background: #f0f2f5; 
+    background: linear-gradient(135deg, var(--purple1), var(--purple2)); 
     margin: 0; 
     padding: 0; 
   }
@@ -18,13 +26,13 @@
     background: #fff; 
     padding: 30px; 
     border-radius: 16px; 
-    box-shadow: 0 8px 30px rgba(0,0,0,0.05); 
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15); 
   }
   .back-btn {
     display: inline-block;
     margin-bottom: 20px;
     padding: 8px 14px;
-    background: #6d28d9; /* بنفش */
+    background: var(--purple1);
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -32,13 +40,13 @@
     transition: background 0.3s;
   }
   .back-btn:hover {
-    background: #5b21b6;
+    background: var(--purple-dark);
   }
   h1 { 
     text-align: center; 
     font-size: 24px; 
     margin-bottom: 20px; 
-    color: #111827; 
+    color: var(--text-dark); 
   }
   label { 
     display: block; 
@@ -46,18 +54,24 @@
     font-weight: 600; 
     color: #374151; 
   }
-  input[type="text"], input[type="number"], input[type="file"], textarea, select { 
+  input[type="text"], 
+  input[type="number"], 
+  input[type="file"], 
+  textarea, 
+  select { 
     width: 100%; 
     padding: 12px; 
     margin-top: 6px; 
     border-radius: 12px; 
-    border: 1px solid #d1d5db; 
+    border: 1px solid var(--border-color); 
     font-size: 15px; 
-    background: #f9fafb; 
+    background: var(--bg-light); 
+    transition: border-color 0.3s, box-shadow 0.3s;
   }
   input:focus, textarea:focus, select:focus { 
-    border-color: #3b82f6; 
+    border-color: var(--purple1); 
     outline: none; 
+    box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.2);
   }
   textarea { 
     min-height: 120px; 
@@ -71,21 +85,20 @@
     font-weight: 700; 
     border: none; 
     border-radius: 12px; 
-    background: #3b82f6; 
+    background: var(--purple1); 
     color: #fff; 
     cursor: pointer; 
     transition: background 0.3s; 
   }
   button:hover { 
-    background: #2563eb; 
+    background: var(--purple-dark); 
   }
 </style>
 </head>
 <body>
 <div class="container">
-  <!-- دکمه بازگشت به داشبورد -->
-  <a href="dashboard.html" class="back-btn">← بازگشت به داشبورد</a>
-  
+  <a href="/dashboard" class="back-btn">← بازگشت به داشبورد</a>
+
   <h1>ثبت آگهی جدید</h1>
   <form id="listingForm">
     <label for="title">عنوان آگهی</label>

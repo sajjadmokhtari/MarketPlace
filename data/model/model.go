@@ -18,13 +18,14 @@ type Category struct {
 
 // جدول آگهی‌ها / لیستینگ‌ها
 type Listing struct {
-	gorm.Model
-	Title       string   `gorm:"type:varchar(255);not null"` // عنوان
-	Description string   `gorm:"type:text"`                  // توضیحات
-	Price       float64  `gorm:"not null"`                   // قیمت
-	ImagePath   string   `gorm:"type:varchar(255)"`          // مسیر عکس
-	CityID      uint     `gorm:"not null"`                   // شناسه شهر
-	City        City     `gorm:"foreignKey:CityID"`          // ارتباط با جدول شهر
-	CategoryID  uint     `gorm:"not null"`                   // شناسه دسته‌بندی
-	Category    Category `gorm:"foreignKey:CategoryID"`      // ارتباط با جدول دسته‌بندی
+    gorm.Model
+    Title       string   `gorm:"type:varchar(255);not null" json:"Title"`       // عنوان
+    Description string   `gorm:"type:text" json:"Description"`                  // توضیحات
+    Price       float64  `gorm:"not null" json:"Price"`                         // قیمت
+    ImagePath   string   `gorm:"type:varchar(255)" json:"ImagePath"`           // مسیر عکس
+    CityID      uint     `gorm:"not null" json:"CityID"`                        // شناسه شهر
+    City        City     `gorm:"foreignKey:CityID" json:"City"`                // ارتباط با جدول شهر
+    CategoryID  uint     `gorm:"not null" json:"CategoryID"`                    // شناسه دسته‌بندی
+    Category    Category `gorm:"foreignKey:CategoryID" json:"Category"`        // ارتباط با جدول دسته‌بندی
+    Phone       string   `gorm:"type:varchar(20);not null" json:"Phone"`       // شماره تماس
 }

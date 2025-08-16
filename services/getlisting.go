@@ -5,10 +5,16 @@ import (
 	"MarketPlace/data/model"
 )
 
-func GetAllListings() ([]model.Listing, error) {
-	var listings []model.Listing
-	if err := db.GetDb().Preload("City").Preload("Category").Find(&listings).Error; err != nil {
-		return nil, err
-	}
-	return listings, nil
+func GetAllListings(categoryID string) ([]model.Listing, error) {
+    var listings []model.Listing
+    query := db.GetDb().Preload("City").Preload("Category")
+
+    if categoryID != "" {
+        query = query.Where("category_id = ?", categoryID)
+    }
+
+    if err := query.Find(&listings).Error; err != nil {
+        return nil, err
+    }
+    return listings, nil
 }

@@ -2,49 +2,48 @@ package middlewares
 
 import (
 	"MarketPlace/services"
-	"context"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
 )
 
-type contextKey string
-
-const (
-	UserPhoneKey contextKey = "userPhone"
-	UserRoleKey  contextKey = "userRole"
-)
-
-func AuthMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		cookie, err := r.Cookie("token")
+func AuthMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		// گرفتن کوکی توکن
+		token, err := c.Cookie("token")
 		if err != nil {
-			http.Error(w, "توکن یافت نشد", http.StatusUnauthorized)
+			c.JSON(http.StatusUnauthorized, gin.H{"message": "توکن یافت نشد"})
+			c.Abort()
 			return
 		}
 
-		claims, err := services.ValidateJWT(cookie.Value)
+		claims, err := services.ValidateJWT(token)
 		if err != nil {
-			http.Error(w, "توکن نامعتبر است", http.StatusUnauthorized)
+			c.JSON(http.StatusUnauthorized, gin.H{"message": "توکن نامعتبر است"})
+			c.Abort()
 			return
 		}
 
-		// ذخیره اطلاعات در context
-		ctx := context.WithValue(r.Context(), UserPhoneKey, claims.Phone)
-		ctx = context.WithValue(ctx, UserRoleKey, claims.Role)
+		// ذخیره شماره و نقش داخل کانتکست Gin
+		c.Set("userPhone", claims.Phone)
+		c.Set("userRole", claims.Role)
 
-		next.ServeHTTP(w, r.WithContext(ctx))
-	})
+		c.Next()
+	}
 }
 
 
 
-func AdminMiddleware(next http.Handler) http.Handler {
-    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-        role, ok := r.Context().Value(UserRoleKey).(string)
-        if !ok || role != "admin" {
-            http.Error(w, "دسترسی فقط برای مدیران مجاز است", http.StatusForbidden)
-            return
-        }
 
-        next.ServeHTTP(w, r)
-    })
+
+func AdminMiddleware() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		role, exists := c.Get("userRole")
+		if !exists || role != "admin" {
+			c.JSON(http.StatusForbidden, gin.H{"message": "دسترسی فقط برای مدیران مجاز است"})
+			c.Abort()
+			return
+		}
+		c.Next()
+	}
 }

@@ -2,6 +2,7 @@ package router
 
 import (
 	"MarketPlace/api/handler"
+	"MarketPlace/api/middlewares"
 
 	"github.com/gin-gonic/gin"
 )
@@ -21,7 +22,8 @@ func SetupRoutes() *gin.Engine {
 		api.POST("/verify-otp", handler.VerifyOtpHandler)
 
 		// ثبت و گرفتن آگهی‌ها
-		api.POST("/listings", handler.CreateListingHandler)
+		api.POST("/listings", middlewares.AuthMiddleware(), handler.CreateListingHandler)
+
 		api.GET("/listings", handler.GetListingsHandler)
 
 		// داده‌ها

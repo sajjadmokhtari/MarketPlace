@@ -8,66 +8,74 @@
 <style>
   body { 
     font-family: 'Vazirmatn', Tahoma, sans-serif; 
-    background: #9558b4;
+    background: #9558b4; 
     margin: 0; 
     padding: 0; 
   }
   .container { max-width: 1000px; margin: 50px auto; padding: 0 16px; }
-  h1 { 
-    text-align: center; 
-    color: #2e004f;
-    margin-bottom: 30px; 
-    font-weight: 700;
-  }
-  .grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-    gap: 20px; 
-  }
+  h1 { text-align: center; color: #2e004f; margin-bottom: 30px; font-weight: 700; }
+  .filter-box { text-align: center; margin-bottom: 20px; }
+  select { padding: 6px 10px; border-radius: 8px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
   .card { 
     background: #ffffff; 
     border-radius: 12px; 
     padding: 20px; 
-    box-shadow: 0 8px 20px rgba(75, 0, 130, 0.1);
+    box-shadow: 0 8px 20px rgba(75, 0, 130, 0.1); 
     transition: transform 0.3s, box-shadow 0.3s; 
     cursor: pointer; 
   }
-  .card:hover { 
-    transform: translateY(-6px); 
-    box-shadow: 0 12px 25px rgba(75, 0, 130, 0.2); 
-  }
-  .card h2 { 
-    font-size: 20px; 
-    margin: 0 0 10px 0; 
-    color: #4b0082; 
-  }
-  .card p { 
-    margin: 6px 0; 
-    color: #4b5563; 
-    font-size: 14px;
-  }
-  .card img { 
-    width: 100%; 
-    height: 160px; 
-    object-fit: cover; 
-    border-radius: 10px; 
-    margin-bottom: 12px; 
-  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 12px 25px rgba(75, 0, 130, 0.2); }
+  .card h2 { font-size: 20px; margin: 0 0 10px 0; color: #4b0082; }
+  .card p { margin: 6px 0; color: #4b5563; font-size: 14px; line-height: 1.5; white-space: pre-wrap; }
+  .card img { width: 100%; height: 160px; object-fit: cover; border-radius: 10px; margin-bottom: 12px; }
   .card strong { color: #4b0082; }
 </style>
 </head>
 <body>
 <div class="container">
   <h1>همه آگهی‌ها</h1>
+
+  <!-- فیلتر دسته‌بندی -->
+  <div class="filter-box">
+    <label for="categoryFilter" style="color:white; font-weight:bold;">فیلتر دسته‌بندی: </label>
+    <select id="categoryFilter">
+      <option value="">همه دسته‌بندی‌ها</option>
+    </select>
+  </div>
+
   <div class="grid" id="listingsGrid">
     <!-- آگهی‌ها اینجا اضافه می‌شوند -->
   </div>
 </div>
 
 <script>
-async function loadListings() {
+async function loadCategories() {
   try {
-    const res = await fetch('/api/listings');
+    const res = await fetch('/api/categories'); // این باید API لیست دسته‌بندی‌ها باشه
+    if (!res.ok) throw new Error('خطا در دریافت دسته‌بندی‌ها');
+    const categories = await res.json();
+
+    const select = document.getElementById('categoryFilter');
+    categories.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat.ID;
+      opt.textContent = cat.Name;
+      select.appendChild(opt);
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function loadListings(categoryId = '') {
+  try {
+    let url = '/api/listings';
+    if (categoryId) {
+      url += `?category=${categoryId}`;
+    }
+
+    const res = await fetch(url);
     if (!res.ok) throw new Error('خطا در دریافت آگهی‌ها');
     const listings = await res.json();
 
@@ -78,21 +86,23 @@ async function loadListings() {
       const card = document.createElement('div');
       card.className = 'card';
 
-      // مسیر تصویر رو تمیز می‌کنیم
       let imageUrl = 'https://via.placeholder.com/250x150';
       if (listing.ImagePath) {
-        // بک‌اسلش رو به اسلش تبدیل می‌کنیم و فقط اسم فایل رو نگه می‌داریم
         const fileName = listing.ImagePath.replace(/\\/g, '/').split('/').pop();
         imageUrl = `/uploads/${fileName}`;
       }
 
+      const phone = listing.Phone || 'ثبت نشده';
+      const description = listing.Description || '-';
+
       card.innerHTML = `
         <img src="${imageUrl}" alt="تصویر محصول">
-        <h2>${listing.Title}</h2>
-        <p><strong>قیمت:</strong> ${listing.Price.toLocaleString()} تومان</p>
+        <h2>${listing.Title || '-'}</h2>
+        <p><strong>قیمت:</strong> ${listing.Price ? listing.Price.toLocaleString() + ' تومان' : '-'}</p>
         <p><strong>شهر:</strong> ${listing.City?.Name || ''}</p>
         <p><strong>دسته‌بندی:</strong> ${listing.Category?.Name || ''}</p>
-        <p>${listing.Description}</p>
+        <p><strong>توضیحات:</strong> ${description}</p>
+        <p><strong>شماره تماس:</strong> ${phone}</p>
       `;
       grid.appendChild(card);
     });
@@ -103,7 +113,14 @@ async function loadListings() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadListings);
+document.addEventListener('DOMContentLoaded', () => {
+  loadCategories();
+  loadListings();
+});
+
+document.getElementById('categoryFilter').addEventListener('change', function() {
+  loadListings(this.value);
+});
 </script>
 </body>
 </html>
