@@ -43,7 +43,7 @@ func CreateListingHandler(c *gin.Context) {
     categoryName := c.PostForm("category")
     description := c.PostForm("description")
 
-    price, err := strconv.ParseFloat(priceStr, 64)
+    price, err := strconv.ParseFloat(priceStr, 64)  
     if err != nil {
         c.JSON(http.StatusBadRequest, gin.H{"message": "Invalid price"})
         return

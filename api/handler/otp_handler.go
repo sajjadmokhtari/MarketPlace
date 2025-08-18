@@ -1,26 +1,28 @@
 package handler
 
 import (
+	"MarketPlace/logging"
 	"MarketPlace/services"
-	"log"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 // SendOtpHandler هندلر ارسال OTP
+
+// SendOtpHandler هندلر ارسال OTP
 func SendOtpHandler(c *gin.Context) {
 	var req PhoneRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
-		log.Println("Error decoding phone request:", err)
+		logging.GetLogger().Errorw("Error decoding phone request", "error", err)
 		c.JSON(http.StatusBadRequest, Response{Valid: false, Message: "درخواست نامعتبر"})
 		return
 	}
 
-	log.Printf("SendOtpHandler received phone: %s", req.Phone)
+	logging.GetLogger().Infow("SendOtpHandler received phone", "phone", req.Phone)
 
 	if err := services.SendOTP(req.Phone); err != nil {
-		log.Println("Error sending OTP:", err)
+		logging.GetLogger().Errorw("Error sending OTP", "error", err, "phone", req.Phone)
 		c.JSON(http.StatusInternalServerError, Response{Valid: false, Message: "خطا در ارسال OTP"})
 		return
 	}
@@ -32,13 +34,13 @@ func SendOtpHandler(c *gin.Context) {
 func VerifyOtpHandler(c *gin.Context) {
 	var req OTPRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
-		log.Println("Error decoding OTP request:", err)
+		logging.GetLogger().Errorw("Error decoding OTP request", "error", err)
 		c.JSON(http.StatusBadRequest, Response{Valid: false, Message: "درخواست نامعتبر"})
 		return
 	}
 
 	if err := services.VerifyOTP(req.Phone, req.OTP); err != nil {
-		log.Println("OTP verification failed:", err)
+		logging.GetLogger().Errorw("OTP verification failed", "error", err, "phone", req.Phone)
 		c.JSON(http.StatusBadRequest, Response{Valid: false, Message: err.Error()})
 		return
 	}
@@ -46,12 +48,12 @@ func VerifyOtpHandler(c *gin.Context) {
 	// ساخت JWT بعد از تایید OTP
 	token, err := services.GenerateJWT(req.Phone, "user") // نقش فعلاً "user"
 	if err != nil {
-		log.Println("Error generating JWT:", err)
+		logging.GetLogger().Errorw("Error generating JWT", "error", err, "phone", req.Phone)
 		c.JSON(http.StatusInternalServerError, Response{Valid: false, Message: "خطا در ساخت توکن"})
 		return
 	}
 
-	log.Printf("Generated JWT for phone %s: %s", req.Phone, token)
+	logging.GetLogger().Infow("Generated JWT for phone", "phone", req.Phone, "token", token)
 
 	// ذخیره توکن در کوکی
 	c.SetCookie("token", token, 3600, "/", "", false, true)

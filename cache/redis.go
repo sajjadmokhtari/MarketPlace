@@ -5,6 +5,8 @@ import (
 	"strconv"
 	"time"
 
+	"MarketPlace/logging"
+
 	"github.com/redis/go-redis/v9"
 )
 
@@ -13,26 +15,46 @@ var Client *redis.Client
 
 func InitRedis() {
 	Client = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
-		Password: "pass",
+		Addr:     "127.0.0.1:6379", // حتما IPv4 بذار، با localhost بعضی وقتا IPv6 می‌ره
+		Password: "pass",           // اگه پسورد نداری خالی بذار ""
 		DB:       0,
 	})
+
+	// تست اتصال
+	_, err := Client.Ping(ctx).Result()
+	if err != nil {
+		logging.GetLogger().Fatalw("❌ Failed to connect to Redis", "error", err)
+	} else {
+		logging.GetLogger().Infow("✅ Connected to Redis successfully", "addr", "127.0.0.1:6379")
+	}
 }
 
-// ذخیره OTP با انقضای ۵ دقیقه
+// ذخیره OTP با انقضای ۱ دقیقه
 func SetOTP(phone string, otp string) error {
 	key := "otp:" + phone
-	return Client.Set(ctx, key, otp, 5*time.Minute).Err()
+	err := Client.Set(ctx, key, otp, 1*time.Minute).Err()
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to save OTP in Redis", "phone", phone, "error", err)
+	}
+	return err
 }
 
 func GetOTP(phone string) (string, error) {
 	key := "otp:" + phone
-	return Client.Get(ctx, key).Result()
+	val, err := Client.Get(ctx, key).Result()
+	if err != nil && err != redis.Nil {
+		logging.GetLogger().Errorw("❌ Failed to get OTP from Redis", "phone", phone, "error", err)
+	}
+	return val, err
 }
 
 func DeleteOTP(phone string) error {
 	key := "otp:" + phone
-	return Client.Del(ctx, key).Err()
+	err := Client.Del(ctx, key).Err()
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to delete OTP from Redis", "phone", phone, "error", err)
+	}
+	return err
 }
 
 // بررسی اینکه آیا مجاز به ارسال OTP هست یا نه (حداقل ۶۰ ثانیه فاصله)
@@ -42,8 +64,13 @@ func CanSendOTP(phone string) bool {
 	if err == redis.Nil {
 		return true
 	}
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to check CanSendOTP", "phone", phone, "error", err)
+		return true
+	}
 	lastTime, err := strconv.ParseInt(lastTimeStr, 10, 64)
 	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to parse last OTP timestamp", "phone", phone, "error", err)
 		return true
 	}
 	return time.Now().Unix()-lastTime >= 60
@@ -52,7 +79,10 @@ func CanSendOTP(phone string) bool {
 // ثبت زمان ارسال OTP
 func MarkOTPSent(phone string) {
 	key := "otp:last:" + phone
-	Client.Set(ctx, key, time.Now().Unix(), 10*time.Minute)
+	err := Client.Set(ctx, key, time.Now().Unix(), 10*time.Minute).Err()
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to mark OTP sent", "phone", phone, "error", err)
+	}
 }
 
 // شمارش تعداد درخواست‌های OTP در ۱۰ دقیقه اخیر
@@ -62,16 +92,24 @@ func OTPRequestCount(phone string) int {
 	if err == redis.Nil {
 		return 0
 	}
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to get OTP request count", "phone", phone, "error", err)
+		return 0
+	}
 	count, err := strconv.Atoi(countStr)
 	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to parse OTP request count", "phone", phone, "error", err)
 		return 0
 	}
 	return count
 }
 
-// افزایش شمارش درخواست OTP
+// اگه تو ۱۰ دقیقه ۵ بار درخواست بزنه، اینجا می‌فهمی و می‌تونی جلوشو بگیری.
 func IncrementOTPRequest(phone string) {
 	key := "otp:count:" + phone
-	Client.Incr(ctx, key)
+	err := Client.Incr(ctx, key).Err()
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to increment OTP request count", "phone", phone, "error", err)
+	}
 	Client.Expire(ctx, key, 10*time.Minute)
 }
