@@ -3,7 +3,7 @@ package migration
 import (
 	"MarketPlace/data/db"
 	"MarketPlace/data/model"
-	"log"
+	"MarketPlace/logging"
 
 	"gorm.io/gorm"
 )
@@ -11,14 +11,14 @@ import (
 func Up_1() {
 	database := db.GetDb()
 
-	
 	err := database.AutoMigrate(
 		&model.City{},
 		&model.Category{},
 		&model.Listing{},
 	)
 	if err != nil {
-		log.Fatalf("failed to migrate database: %v", err)
+
+		logging.GetLogger().Errorw("failed to migrate database: %v", err)
 	}
 
 	// بعد داده‌های پیش‌فرض رو اضافه کن
@@ -26,14 +26,12 @@ func Up_1() {
 	CreateCategory(database)
 }
 
-
-
-
 func CreateCity(database *gorm.DB) {
 	// چک کن که جدول City خالیه یا نه
 	var count int64
 	if err := database.Model(&model.City{}).Count(&count).Error; err != nil {
-		log.Printf("error counting cities: %v", err)
+
+		logging.GetLogger().Errorw("error counting cities: %v", err)
 		return
 	}
 
@@ -73,9 +71,11 @@ func CreateCity(database *gorm.DB) {
 		}
 
 		if err := database.Create(&cities).Error; err != nil {
-			log.Printf("error creating cities: %v", err)
+			logging.GetLogger().Errorw("error Creating cities: %v", err)
+
 		} else {
-			log.Println("cities inserted successfully")
+
+			logging.GetLogger().Infow("cities inserted successfully")
 		}
 	}
 }
@@ -83,7 +83,8 @@ func CreateCity(database *gorm.DB) {
 func CreateCategory(database *gorm.DB) {
 	var count int64
 	if err := database.Model(&model.Category{}).Count(&count).Error; err != nil {
-		log.Printf("error counting categories: %v", err)
+
+		logging.GetLogger().Errorw("error counting categories: %v", err)
 		return
 	}
 
@@ -108,9 +109,11 @@ func CreateCategory(database *gorm.DB) {
 		}
 
 		if err := database.Create(&categories).Error; err != nil {
-			log.Printf("error creating categories: %v", err)
+
+			logging.GetLogger().Errorw("error creating categories: %v", err)
 		} else {
-			log.Println("categories inserted successfully")
+
+			logging.GetLogger().Infow("categories inserted successfully")
 		}
 	}
 }

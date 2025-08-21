@@ -5,10 +5,13 @@ import (
 	"MarketPlace/api/middlewares"
 
 	"github.com/gin-gonic/gin"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 func SetupRoutes() *gin.Engine {
 	r := gin.Default()
+
+	r.Use(middlewares.PrometheusMiddleware())
 
 	// سرو کردن فایل‌های استاتیک (CSS, JS, تصاویر)
 	r.Static("/static", "./frontend")
@@ -44,6 +47,8 @@ func SetupRoutes() *gin.Engine {
 	r.GET("/listings", func(c *gin.Context) {
 		c.File("./frontend/listings.html")
 	})
+
+	r.GET("/metrics", gin.WrapH(promhttp.Handler()))// وقتی پرومتوس بیاد تمام متریک های ثبت شده رو نشون میده
 
 	return r
 }

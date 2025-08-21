@@ -6,6 +6,7 @@ import (
 	"MarketPlace/data/db"
 	"MarketPlace/data/db/migration"
 	"MarketPlace/logging" // اضافه شد: پکیج لاگر خودمون
+	"MarketPlace/pkg/metrics"
 )
 
 func main() {
@@ -24,6 +25,8 @@ func main() {
 	// راه‌اندازی Redis
 	cache.InitRedis()
 
+	metrics.RegisterAll()
+
 	// ثبت مسیرها و گرفتن Engine
 	r := router.SetupRoutes()
 
@@ -31,9 +34,8 @@ func main() {
 	log.Infow("🚀 سرور روی پورت 8080 اجرا شد")
 
 	// اگر سرور نتوانست اجرا شود
-	if err := r.Run(":8080"); err != nil {
+	if err := r.Run("0.0.0.0:8080"); err != nil {
 		log.Fatalf("❌ سرور نتوانست اجرا شود: %v", err)
 	}
+
 }
-
-

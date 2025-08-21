@@ -19,3 +19,132 @@
 {"level":"info","ts":"2025-08-18T19:22:59.366+0330","caller":"cmd/main.go:17","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
 {"level":"info","ts":"2025-08-18T19:22:59.648+0330","caller":"cmd/main.go:25","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
 {"level":"info","ts":"2025-08-18T19:22:59.650+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-19T22:01:54.328+0330","caller":"cmd/main.go:17","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-19T22:01:54.724+0330","caller":"cmd/main.go:25","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-19T22:01:54.726+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-19T22:53:33.436+0330","caller":"cmd/main.go:17","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-19T22:53:33.655+0330","caller":"cmd/main.go:25","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-19T22:53:33.657+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-19T22:54:24.189+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-19T22:54:24.200+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"303956"}
+{"level":"info","ts":"2025-08-19T22:54:24.211+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"303956"}
+{"level":"info","ts":"2025-08-19T22:55:22.943+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-08-19T22:55:22.943+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-08-19T22:55:22.943+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTU3MTc5MjIsImlhdCI6MTc1NTYzMTUyMn0.gZw_YLMoC-R5sZWgCrQWE8H_kYRn5VicSL-0gnKH3UQ"}
+{"level":"info","ts":"2025-08-19T22:55:42.972+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTU3MTc5MjIsImlhdCI6MTc1NTYzMTUyMn0.gZw_YLMoC-R5sZWgCrQWE8H_kYRn5VicSL-0gnKH3UQ"}
+{"level":"info","ts":"2025-08-19T22:59:12.255+0330","caller":"cmd/main.go:17","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-19T22:59:12.440+0330","caller":"cmd/main.go:25","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-19T22:59:12.442+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-19T23:12:33.197+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-19T23:12:33.356+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-19T23:12:33.358+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-19T23:12:56.322+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-19T23:12:56.324+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"014268"}
+{"level":"info","ts":"2025-08-19T23:12:56.327+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"014268"}
+{"level":"info","ts":"2025-08-19T23:12:57.994+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-19T23:12:57.996+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-19T23:12:57.996+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-19T23:13:05.801+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"091231312312"}
+{"level":"info","ts":"2025-08-19T23:13:05.804+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"091231312312","otp":"662877"}
+{"level":"info","ts":"2025-08-19T23:13:05.809+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"091231312312","otp":"662877"}
+{"level":"info","ts":"2025-08-19T23:13:11.532+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"091231312312"}
+{"level":"info","ts":"2025-08-19T23:13:11.532+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"091231312312"}
+{"level":"info","ts":"2025-08-19T23:13:11.532+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"091231312312","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5MTIzMTMxMjMxMiIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzU1NzE4OTkxLCJpYXQiOjE3NTU2MzI1OTF9.BYty5Xq4pvpse9_L0gfI6i5ZEhL6RLwbSPC8FXZ0bF0"}
+{"level":"info","ts":"2025-08-19T23:20:14.677+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-19T23:20:14.794+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-19T23:20:14.795+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-19T23:20:43.247+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"091231312312"}
+{"level":"info","ts":"2025-08-19T23:20:43.250+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"091231312312","otp":"481076"}
+{"level":"info","ts":"2025-08-19T23:20:43.255+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"091231312312","otp":"481076"}
+{"level":"info","ts":"2025-08-19T23:20:44.469+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"091231312312","provided_otp":"662877","stored_otp":"481076"}
+{"level":"error","ts":"2025-08-19T23:20:44.469+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"091231312312"}
+{"level":"info","ts":"2025-08-19T23:31:46.214+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-19T23:31:46.385+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-19T23:31:46.386+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-19T23:31:56.345+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"091231312312"}
+{"level":"info","ts":"2025-08-19T23:31:56.350+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"091231312312","otp":"483950"}
+{"level":"info","ts":"2025-08-19T23:31:56.364+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"091231312312","otp":"483950"}
+{"level":"info","ts":"2025-08-19T23:31:57.820+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"091231312312","provided_otp":"662877","stored_otp":"483950"}
+{"level":"error","ts":"2025-08-19T23:31:57.820+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"091231312312"}
+{"level":"info","ts":"2025-08-19T23:38:16.195+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-19T23:38:16.327+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-19T23:38:16.329+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-20T00:00:54.807+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-20T00:00:54.909+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-20T00:00:54.910+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-20T00:31:59.500+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-20T00:31:59.627+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-20T00:31:59.631+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-20T21:14:51.672+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-20T21:14:52.134+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-20T21:14:52.137+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-20T21:38:33.825+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-20T21:38:34.049+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-20T21:38:34.051+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-20T22:05:58.546+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:05:58.559+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"297683"}
+{"level":"info","ts":"2025-08-20T22:05:58.574+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"297683"}
+{"level":"info","ts":"2025-08-20T22:06:18.125+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:06:18.125+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:06:18.125+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTU4MDEzNzgsImlhdCI6MTc1NTcxNDk3OH0.F0EQM0BWTagRXWK6FyfLRRcR0C3mQPGzbGVuQkD3-Y8"}
+{"level":"info","ts":"2025-08-20T22:17:36.689+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:36.693+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"575734"}
+{"level":"info","ts":"2025-08-20T22:17:36.700+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"575734"}
+{"level":"info","ts":"2025-08-20T22:17:37.500+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"575734"}
+{"level":"error","ts":"2025-08-20T22:17:37.500+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:37.830+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"575734"}
+{"level":"error","ts":"2025-08-20T22:17:37.830+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:38.016+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"575734"}
+{"level":"error","ts":"2025-08-20T22:17:38.016+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:38.375+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:38.377+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-20T22:17:38.377+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:38.814+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"575734"}
+{"level":"error","ts":"2025-08-20T22:17:38.814+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:39.064+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:39.066+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-20T22:17:39.066+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:39.377+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"575734"}
+{"level":"error","ts":"2025-08-20T22:17:39.377+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:39.850+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:39.852+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-20T22:17:39.852+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:40.373+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:40.375+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-20T22:17:40.375+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:40.645+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"575734"}
+{"level":"error","ts":"2025-08-20T22:17:40.645+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:40.860+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:40.862+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-20T22:17:40.862+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:17:41.139+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"575734"}
+{"level":"error","ts":"2025-08-20T22:17:41.139+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:19:54.285+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-08-20T22:19:54.387+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-08-20T22:19:54.389+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-08-20T22:20:12.551+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:20:12.554+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"180112"}
+{"level":"info","ts":"2025-08-20T22:20:12.559+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"180112"}
+{"level":"info","ts":"2025-08-20T22:20:12.971+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"180112"}
+{"level":"error","ts":"2025-08-20T22:20:12.971+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:20:15.714+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"180112"}
+{"level":"error","ts":"2025-08-20T22:20:15.714+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:20:16.388+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"180112"}
+{"level":"error","ts":"2025-08-20T22:20:16.388+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:20:16.619+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:20:16.621+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-20T22:20:16.621+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:20:16.786+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:20:16.790+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-20T22:20:16.790+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:20:17.054+0330","caller":"handler/otp_handler.go:46","msg":"OTP mismatch","phone":"09911732328","provided_otp":"297683","stored_otp":"180112"}
+{"level":"error","ts":"2025-08-20T22:20:17.054+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:21:11.569+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:21:11.571+0330","caller":"handler/otp_handler.go:24","msg":"OTP request blocked: please try later","phone":"09911732328"}
+{"level":"error","ts":"2025-08-20T22:21:11.571+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً کمی صبر کنید و دوباره تلاش کنید","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:37:23.714+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:37:23.719+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"771350"}
+{"level":"info","ts":"2025-08-20T22:37:23.726+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"771350"}
+{"level":"info","ts":"2025-08-20T22:37:35.875+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:37:35.875+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-08-20T22:37:35.875+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTU4MDMyNTUsImlhdCI6MTc1NTcxNjg1NX0.d8aUnyCtN8Vj1rQELP7TYEX6-Hc0w1gQgJTdEPU-AUY"}
