@@ -14,8 +14,6 @@
   }
   .container { max-width: 1000px; margin: 50px auto; padding: 0 16px; }
   h1 { text-align: center; color: #2e004f; margin-bottom: 30px; font-weight: 700; }
-  .filter-box { text-align: center; margin-bottom: 20px; }
-  select { padding: 6px 10px; border-radius: 8px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
   .card { 
     background: #ffffff; 
@@ -36,46 +34,15 @@
 <div class="container">
   <h1>همه آگهی‌ها</h1>
 
-  <!-- فیلتر دسته‌بندی -->
-  <div class="filter-box">
-    <label for="categoryFilter" style="color:white; font-weight:bold;">فیلتر دسته‌بندی: </label>
-    <select id="categoryFilter">
-      <option value="">همه دسته‌بندی‌ها</option>
-    </select>
-  </div>
-
   <div class="grid" id="listingsGrid">
     <!-- آگهی‌ها اینجا اضافه می‌شوند -->
   </div>
 </div>
 
 <script>
-async function loadCategories() {
+async function loadListings() {
   try {
-    const res = await fetch('/api/categories'); // این باید API لیست دسته‌بندی‌ها باشه
-    if (!res.ok) throw new Error('خطا در دریافت دسته‌بندی‌ها');
-    const categories = await res.json();
-
-    const select = document.getElementById('categoryFilter');
-    categories.forEach(cat => {
-      const opt = document.createElement('option');
-      opt.value = cat.ID;
-      opt.textContent = cat.Name;
-      select.appendChild(opt);
-    });
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-async function loadListings(categoryId = '') {
-  try {
-    let url = '/api/listings';
-    if (categoryId) {
-      url += `?category=${categoryId}`;
-    }
-
-    const res = await fetch(url);
+    const res = await fetch('/api/listings');
     if (!res.ok) throw new Error('خطا در دریافت آگهی‌ها');
     const listings = await res.json();
 
@@ -114,12 +81,7 @@ async function loadListings(categoryId = '') {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadCategories();
   loadListings();
-});
-
-document.getElementById('categoryFilter').addEventListener('change', function() {
-  loadListings(this.value);
 });
 </script>
 </body>

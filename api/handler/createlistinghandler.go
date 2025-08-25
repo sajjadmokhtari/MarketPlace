@@ -3,6 +3,7 @@ package handler
 import (
 	"MarketPlace/data/db"
 	"MarketPlace/data/model"
+	"MarketPlace/kafka"
 	"MarketPlace/pkg/metrics"
 	"net/http"
 	"os"
@@ -109,6 +110,16 @@ func CreateListingHandler(c *gin.Context) {
 		return
 	}
 	metrics.DbCall.WithLabelValues("create_listing", "success").Inc()
+
+
+	
+
+	newAd := kafka.Ad{
+		ID:    strconv.Itoa(int(listing.ID)),
+		Title: listing.Title,
+	}
+	kafka.ProduceAd(newAd)
+
 
 	// پاسخ موفق
 	c.JSON(http.StatusCreated, ListingResponse{

@@ -7,13 +7,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// GetListingsHandler فعلاً فقط نمایش همه آگهی‌ها بدون فیلتر دسته‌بندی
 func GetListingsHandler(c *gin.Context) {
-    categoryID := c.Query("category") // گرفتن پارامتر از URL
-
-    listings, err := services.GetAllListings(categoryID)
-    if err != nil {
-        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-        return
-    }
-    c.JSON(http.StatusOK, listings)
+	listings, err := services.GetAllListings("") // دسته‌بندی خالی یعنی همه آگهی‌ها
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, listings)
 }
