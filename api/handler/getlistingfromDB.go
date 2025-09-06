@@ -1,18 +1,25 @@
 package handler
 
 import (
-	"MarketPlace/services"
+	"MarketPlace/data/db"
+	"MarketPlace/data/model"
+	"MarketPlace/pkg/metrics"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
-// GetListingsHandler فعلاً فقط نمایش همه آگهی‌ها بدون فیلتر دسته‌بندی
+// GetListingsHandler نمایش همه آگهی‌ها بدون فیلتر
 func GetListingsHandler(c *gin.Context) {
-	listings, err := services.GetAllListings("") // دسته‌بندی خالی یعنی همه آگهی‌ها
-	if err != nil {
+	var listings []model.Listing
+
+	// کوئری مستقیم به دیتابیس
+	if err := db.GetDb().Preload("City").Preload("Category").Find(&listings).Error; err != nil {
+		metrics.DbCall.WithLabelValues("find_listings", "fail").Inc()
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+
+	metrics.DbCall.WithLabelValues("find_listings", "success").Inc()
 	c.JSON(http.StatusOK, listings)
 }

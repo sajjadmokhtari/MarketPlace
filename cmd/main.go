@@ -26,6 +26,9 @@ func main() {
 	cache.InitRedis()
 
 	metrics.RegisterAll()
+	if err := db.InitMongo(); err != nil {
+		log.Fatalf("❌ failed to connect to MongoDB: %v", err)
+	}
 
 	// ثبت مسیرها و گرفتن Engine
 	r := router.SetupRoutes()

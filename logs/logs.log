@@ -196,3 +196,140 @@
 {"level":"info","ts":"2025-08-24T13:43:50.111+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
 {"level":"info","ts":"2025-08-24T13:43:50.207+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
 {"level":"info","ts":"2025-08-24T13:43:50.208+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T12:33:11.394+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T12:33:11.576+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T12:33:11.578+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T12:33:41.614+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T12:33:41.619+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"985228"}
+{"level":"info","ts":"2025-09-06T12:33:41.625+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"985228"}
+{"level":"info","ts":"2025-09-06T12:33:50.828+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T12:33:50.828+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T12:33:50.828+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzU4MzAsImlhdCI6MTc1NzE0OTQzMH0.F3P72tHAQ1UiV3Hm-Z5KZNegfkHqY-7cge1CJf5gNO4"}
+{"level":"info","ts":"2025-09-06T12:41:35.721+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T12:41:35.940+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T12:41:35.943+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T12:45:57.643+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T12:45:57.825+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T12:45:57.826+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T12:47:25.455+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzU4MzAsImlhdCI6MTc1NzE0OTQzMH0.F3P72tHAQ1UiV3Hm-Z5KZNegfkHqY-7cge1CJf5gNO4"}
+{"level":"info","ts":"2025-09-06T12:47:26.949+0330","caller":"handler/createlistinghandler.go:121","msg":"✅ Message sent successfully","message":"{\"id\":\"16\",\"title\":\"ان\"}"}
+{"level":"info","ts":"2025-09-06T12:53:27.446+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T12:53:27.649+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T12:53:27.654+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T12:55:16.154+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzU4MzAsImlhdCI6MTc1NzE0OTQzMH0.F3P72tHAQ1UiV3Hm-Z5KZNegfkHqY-7cge1CJf5gNO4"}
+{"level":"info","ts":"2025-09-06T12:55:21.903+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzU4MzAsImlhdCI6MTc1NzE0OTQzMH0.F3P72tHAQ1UiV3Hm-Z5KZNegfkHqY-7cge1CJf5gNO4"}
+{"level":"info","ts":"2025-09-06T12:56:23.719+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzU4MzAsImlhdCI6MTc1NzE0OTQzMH0.F3P72tHAQ1UiV3Hm-Z5KZNegfkHqY-7cge1CJf5gNO4"}
+{"level":"info","ts":"2025-09-06T13:00:26.436+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:00:26.680+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:00:26.683+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:00:58.471+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T13:00:58.474+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"429369"}
+{"level":"info","ts":"2025-09-06T13:00:58.478+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"429369"}
+{"level":"info","ts":"2025-09-06T13:01:04.175+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T13:01:04.175+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T13:01:04.175+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzc0NjQsImlhdCI6MTc1NzE1MTA2NH0.l7X50w5zkBUh0CZXv61xjydMpe_qQXxeclldz1CgB9s"}
+{"level":"info","ts":"2025-09-06T13:01:23.257+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzc0NjQsImlhdCI6MTc1NzE1MTA2NH0.l7X50w5zkBUh0CZXv61xjydMpe_qQXxeclldz1CgB9s"}
+{"level":"info","ts":"2025-09-06T13:04:46.572+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:04:47.333+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:04:47.396+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:04:47.397+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:05:29.356+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzc0NjQsImlhdCI6MTc1NzE1MTA2NH0.l7X50w5zkBUh0CZXv61xjydMpe_qQXxeclldz1CgB9s"}
+{"level":"info","ts":"2025-09-06T13:05:30.425+0330","caller":"handler/createlistinghandler.go:143","msg":"✅ Message sent successfully","message":"{\"id\":\"21\",\"title\":\"ینمسن\"}"}
+{"level":"info","ts":"2025-09-06T13:11:41.344+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:11:41.516+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:11:41.543+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:11:41.544+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:12:22.046+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzc0NjQsImlhdCI6MTc1NzE1MTA2NH0.l7X50w5zkBUh0CZXv61xjydMpe_qQXxeclldz1CgB9s"}
+{"level":"info","ts":"2025-09-06T13:12:22.074+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":22,"title":"TEst","city_id":17,"city_name":"فارس","category_id":14,"category_name":"سرگرمی و بازی"}
+{"level":"info","ts":"2025-09-06T13:12:23.115+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"22\",\"title\":\"TEst\"}"}
+{"level":"info","ts":"2025-09-06T13:18:27.218+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:18:27.441+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:18:27.479+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:18:27.482+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:30:26.432+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:30:26.644+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:30:26.683+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:30:26.684+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:31:11.633+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyMzc0NjQsImlhdCI6MTc1NzE1MTA2NH0.l7X50w5zkBUh0CZXv61xjydMpe_qQXxeclldz1CgB9s"}
+{"level":"info","ts":"2025-09-06T13:31:11.664+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":23,"title":"یییسیی","city_id":17,"city_name":"فارس","category_id":8,"category_name":"ورزشی و سفر"}
+{"level":"info","ts":"2025-09-06T13:31:12.806+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"23\",\"title\":\"یییسیی\"}"}
+{"level":"info","ts":"2025-09-06T13:40:34.709+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:40:35.009+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:40:35.640+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:40:35.641+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:46:46.383+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:46:46.610+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:46:47.237+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:46:47.238+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:49:40.458+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:49:40.651+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:49:41.283+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:49:41.286+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:53:33.204+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:53:33.327+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:53:33.970+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:53:33.975+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T13:58:56.450+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T13:58:56.546+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T13:58:57.178+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T13:58:57.181+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T14:04:49.590+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T14:04:49.787+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T14:04:50.421+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T14:04:50.424+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T14:06:00.336+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T14:06:00.342+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"781406"}
+{"level":"info","ts":"2025-09-06T14:06:00.353+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"781406"}
+{"level":"info","ts":"2025-09-06T14:06:05.905+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T14:06:05.905+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T14:06:05.905+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNDEzNjUsImlhdCI6MTc1NzE1NDk2NX0.GyumEs-I3k4r9Cvsji6_wpgkL3j5XNOsq3HmBws7J0Y"}
+{"level":"info","ts":"2025-09-06T14:06:21.938+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNDEzNjUsImlhdCI6MTc1NzE1NDk2NX0.GyumEs-I3k4r9Cvsji6_wpgkL3j5XNOsq3HmBws7J0Y"}
+{"level":"info","ts":"2025-09-06T14:06:21.958+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":24,"title":"vdfdsfds","city_id":19,"city_name":"قم","category_id":14,"category_name":"سرگرمی و بازی"}
+{"level":"info","ts":"2025-09-06T14:06:23.621+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"24\",\"title\":\"vdfdsfds\"}"}
+{"level":"info","ts":"2025-09-06T16:54:25.847+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T16:54:26.015+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T16:54:26.657+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T16:54:26.659+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T16:57:09.839+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T16:57:09.842+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"834283"}
+{"level":"info","ts":"2025-09-06T16:57:09.849+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"834283"}
+{"level":"info","ts":"2025-09-06T16:57:17.670+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T16:57:17.670+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T16:57:17.670+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTE2MzcsImlhdCI6MTc1NzE2NTIzN30.N6gNOfJI94oRj148ScSXLOMdZdCNOyuExU-lF5X_RIs"}
+{"level":"info","ts":"2025-09-06T16:57:33.186+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTE2MzcsImlhdCI6MTc1NzE2NTIzN30.N6gNOfJI94oRj148ScSXLOMdZdCNOyuExU-lF5X_RIs"}
+{"level":"info","ts":"2025-09-06T16:57:33.201+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":25,"title":"ghg","city_id":23,"city_name":"کهگیلویه و بویراحمد","category_id":16,"category_name":"ابزار و لوازم تعمیرات"}
+{"level":"info","ts":"2025-09-06T16:57:34.850+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"25\",\"title\":\"ghg\"}"}
+{"level":"info","ts":"2025-09-06T16:59:22.120+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T16:59:22.387+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T16:59:23.013+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T16:59:23.014+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:00:20.386+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T17:00:20.505+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T17:00:21.150+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T17:00:21.155+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:03:31.297+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T17:03:31.436+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T17:03:32.086+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T17:03:32.087+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:05:05.996+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTE2MzcsImlhdCI6MTc1NzE2NTIzN30.N6gNOfJI94oRj148ScSXLOMdZdCNOyuExU-lF5X_RIs"}
+{"level":"info","ts":"2025-09-06T17:05:06.013+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":26,"title":"بیبیب","city_id":18,"city_name":"قزوین","category_id":16,"category_name":"ابزار و لوازم تعمیرات"}
+{"level":"info","ts":"2025-09-06T17:05:07.642+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"26\",\"title\":\"بیبیب\"}"}
+{"level":"info","ts":"2025-09-06T17:12:06.819+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T17:12:06.941+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T17:12:07.571+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T17:12:07.573+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:13:15.100+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T17:13:15.104+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"981951"}
+{"level":"info","ts":"2025-09-06T17:13:15.111+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"981951"}
+{"level":"info","ts":"2025-09-06T17:13:23.585+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T17:13:23.585+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T17:13:23.585+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTI2MDMsImlhdCI6MTc1NzE2NjIwM30.wqPVVAw6ViQx4uaQ3_X7sZB0eIeGDnS9KKK3M0mtFzI"}
+{"level":"info","ts":"2025-09-06T17:14:21.408+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTI2MDMsImlhdCI6MTc1NzE2NjIwM30.wqPVVAw6ViQx4uaQ3_X7sZB0eIeGDnS9KKK3M0mtFzI"}
+{"level":"info","ts":"2025-09-06T17:14:21.433+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":1,"title":"لبتاپ LOQ","city_id":10,"city_name":"خراسان جنوبی","category_id":3,"category_name":"لپ‌تاپ و کامپیوتر"}
+{"level":"info","ts":"2025-09-06T17:14:22.547+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTI2MDMsImlhdCI6MTc1NzE2NjIwM30.wqPVVAw6ViQx4uaQ3_X7sZB0eIeGDnS9KKK3M0mtFzI"}
+{"level":"info","ts":"2025-09-06T17:14:22.564+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":2,"title":"لبتاپ LOQ","city_id":10,"city_name":"خراسان جنوبی","category_id":3,"category_name":"لپ‌تاپ و کامپیوتر"}
+{"level":"info","ts":"2025-09-06T17:14:23.077+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"1\",\"title\":\"لبتاپ LOQ\"}"}
+{"level":"info","ts":"2025-09-06T17:14:24.191+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"2\",\"title\":\"لبتاپ LOQ\"}"}
+{"level":"info","ts":"2025-09-06T17:21:08.764+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTI2MDMsImlhdCI6MTc1NzE2NjIwM30.wqPVVAw6ViQx4uaQ3_X7sZB0eIeGDnS9KKK3M0mtFzI"}
+{"level":"info","ts":"2025-09-06T17:21:08.785+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":3,"title":"تخته نرد ","city_id":18,"city_name":"قزوین","category_id":14,"category_name":"سرگرمی و بازی"}
+{"level":"info","ts":"2025-09-06T17:21:10.420+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"3\",\"title\":\"تخته نرد \"}"}

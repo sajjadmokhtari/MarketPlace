@@ -4,11 +4,14 @@ import (
 	"MarketPlace/data/db"
 	"MarketPlace/data/model"
 	"MarketPlace/kafka"
+	"MarketPlace/logging"
 	"MarketPlace/pkg/metrics"
+	"context"
 	"net/http"
 	"os"
 	"path/filepath"
 	"strconv"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -111,15 +114,42 @@ func CreateListingHandler(c *gin.Context) {
 	}
 	metrics.DbCall.WithLabelValues("create_listing", "success").Inc()
 
+	// ذخیره در MongoDB برای سرچ
+	mongoClient := db.GetMongoClient()
+	collection := mongoClient.Database("MarketplaceSearch").Collection("ads")
 
-	
+	logging.GetLogger().Infow("📦 Preparing MongoListing",
+		"listing_id", listing.ID,
+		"title", listing.Title,
+		"city_id", city.ID,
+		"city_name", city.Name,
+		"category_id", category.ID,
+		"category_name", category.Name,
+	)
+
+	mongoAd := model.MongoListing{
+		ID:          listing.ID,
+		Title:       listing.Title,
+		Price:       listing.Price,
+		Description: listing.Description,
+		ImagePath:   listing.ImagePath,
+		Phone:       listing.Phone,
+		City:        city.Name,
+		Category:    category.Name,
+	}
+
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	if _, err := collection.InsertOne(ctx, mongoAd); err != nil {
+		logging.GetLogger().Errorw("failed to insert listing into MongoDB", "error", err)
+	}
 
 	newAd := kafka.Ad{
 		ID:    strconv.Itoa(int(listing.ID)),
 		Title: listing.Title,
 	}
 	kafka.ProduceAd(newAd)
-
 
 	// پاسخ موفق
 	c.JSON(http.StatusCreated, ListingResponse{

@@ -26,8 +26,9 @@ func SetupRoutes() *gin.Engine {
 
 		// ثبت و گرفتن آگهی‌ها
 		api.POST("/listings", middlewares.AuthMiddleware(), handler.CreateListingHandler)
-
 		api.GET("/listings", handler.GetListingsHandler)
+
+		api.GET("/search", handler.SearchListingsHandler)
 
 		// داده‌ها
 		api.GET("/categories", handler.GetCategories)

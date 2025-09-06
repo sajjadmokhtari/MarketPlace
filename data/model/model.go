@@ -1,6 +1,8 @@
 package model
 
-import "gorm.io/gorm"
+import (
+	"gorm.io/gorm"
+)
 
 // جدول شهرها
 type City struct {
@@ -18,14 +20,25 @@ type Category struct {
 
 // جدول آگهی‌ها / لیستینگ‌ها
 type Listing struct {
-    gorm.Model
-    Title       string   `gorm:"type:varchar(255);not null" json:"Title"`       // عنوان
-    Description string   `gorm:"type:text" json:"Description"`                  // توضیحات
-    Price       float64  `gorm:"not null" json:"Price"`                         // قیمت
-    ImagePath   string   `gorm:"type:varchar(255)" json:"ImagePath"`           // مسیر عکس
-    CityID      uint     `gorm:"not null" json:"CityID"`                        // شناسه شهر
-    City        City     `gorm:"foreignKey:CityID" json:"City"`                // ارتباط با جدول شهر
-    CategoryID  uint     `gorm:"not null" json:"CategoryID"`                    // شناسه دسته‌بندی
-    Category    Category `gorm:"foreignKey:CategoryID" json:"Category"`        // ارتباط با جدول دسته‌بندی
-    Phone       string   `gorm:"type:varchar(20);not null" json:"Phone"`       // شماره تماس
+	gorm.Model
+	Title       string   `gorm:"type:varchar(255);not null" json:"Title"` // عنوان
+	Description string   `gorm:"type:text" json:"Description"`            // توضیحات
+	Price       float64  `gorm:"not null" json:"Price"`                   // قیمت
+	ImagePath   string   `gorm:"type:varchar(255)" json:"ImagePath"`      // مسیر عکس
+	CityID      uint     `gorm:"not null" json:"CityID"`                  // شناسه شهر
+	City        City     `gorm:"foreignKey:CityID" json:"City"`           // ارتباط با جدول شهر
+	CategoryID  uint     `gorm:"not null" json:"CategoryID"`              // شناسه دسته‌بندی
+	Category    Category `gorm:"foreignKey:CategoryID" json:"Category"`   // ارتباط با جدول دسته‌بندی
+	Phone       string   `gorm:"type:varchar(20);not null" json:"Phone"`  // شماره تماس
+}
+
+type MongoListing struct {
+	ID          uint    `bson:"id"`
+	Title       string  `bson:"title"`
+	Price       float64 `bson:"price"`
+	Description string  `bson:"description"`
+	ImagePath   string  `bson:"image_path"`
+	Phone       string  `bson:"phone"`
+	City        string  `bson:"city"`
+	Category    string  `bson:"category"`
 }
