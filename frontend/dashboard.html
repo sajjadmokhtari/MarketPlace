@@ -27,7 +27,6 @@
     display: flex;
     flex-direction: column;
   }
-  /* Header */
   .header {
     display: flex;
     align-items: center;
@@ -71,7 +70,6 @@
     background: var(--danger);
   }
   .btn-danger:hover { background: var(--danger-hover); }
-  /* Main */
   .container {
     max-width: 1100px;
     margin: 30px auto;
@@ -111,6 +109,7 @@
   .card-value {
     font-size: 20px;
     font-weight: 700;
+    transition: all 0.5s ease;
   }
 </style>
 </head>
@@ -123,7 +122,8 @@
   </div>
   <div class="actions">
     <a class="btn" href="/order"><i class="fa fa-plus"></i> ثبت آگهی</a>
-    <a class="btn btn-danger" href="/logout"><i class="fa fa-sign-out-alt"></i> خروج</a>
+    <!-- دکمه خروج -->
+    <button class="btn btn-danger" id="logoutBtn"><i class="fa fa-sign-out-alt"></i> خروج</button>
   </div>
 </header>
 
@@ -136,20 +136,77 @@
     <div class="card">
       <i class="fa fa-bullhorn"></i>
       <div class="card-title">آگهی‌های فعال</div>
-      <div class="card-value">3</div>
+      <div class="card-value" id="activeListingsCount">0</div>
     </div>
     <div class="card">
       <i class="fa fa-clock"></i>
       <div class="card-title">در انتظار تأیید</div>
-      <div class="card-value">1</div>
+      <div class="card-value" id="pendingListingsCount">0</div>
     </div>
     <div class="card">
       <i class="fa fa-envelope"></i>
       <div class="card-title">پیام‌های خوانده‌نشده</div>
-      <div class="card-value">2</div>
+      <div class="card-value" id="unreadMessagesCount">0</div>
     </div>
   </div>
 </main>
+
+<script>
+// انیمیشن شمارش عدد
+function animateCount(el, target) {
+  let current = 0;
+  const step = Math.ceil(target / 50);
+  const interval = setInterval(() => {
+    current += step;
+    if (current >= target) {
+      current = target;
+      clearInterval(interval);
+    }
+    el.textContent = current;
+  }, 15);
+}
+
+// دریافت تعداد آگهی‌های فعال
+async function loadActiveListingsCount() {
+  try {
+    const res = await fetch('/api/active-list');
+    const data = await res.json();
+    animateCount(document.getElementById('activeListingsCount'), data.count || 0);
+  } catch {
+    animateCount(document.getElementById('activeListingsCount'), 0);
+  }
+}
+
+// دریافت سایر آمار
+async function loadOtherCounts() {
+  try {
+    const res = await fetch('/api/pending-list');
+    const data = await res.json();
+    animateCount(document.getElementById('pendingListingsCount'), data.count || 0);
+  } catch {
+    animateCount(document.getElementById('pendingListingsCount'), 0);
+  }
+
+  try {
+    const res = await fetch('/api/unread-messages');
+    const data = await res.json();
+    animateCount(document.getElementById('unreadMessagesCount'), data.count || 0);
+  } catch {
+    animateCount(document.getElementById('unreadMessagesCount'), 0);
+  }
+}
+
+// دکمه خروج
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  // می‌تونی اینجا درخواست logout به سرور بزنی اگر داری
+  window.location.href = '/';
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadActiveListingsCount();
+  loadOtherCounts();
+});
+</script>
 
 </body>
 </html>

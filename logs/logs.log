@@ -333,3 +333,34 @@
 {"level":"info","ts":"2025-09-06T17:21:08.764+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTI2MDMsImlhdCI6MTc1NzE2NjIwM30.wqPVVAw6ViQx4uaQ3_X7sZB0eIeGDnS9KKK3M0mtFzI"}
 {"level":"info","ts":"2025-09-06T17:21:08.785+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":3,"title":"تخته نرد ","city_id":18,"city_name":"قزوین","category_id":14,"category_name":"سرگرمی و بازی"}
 {"level":"info","ts":"2025-09-06T17:21:10.420+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"3\",\"title\":\"تخته نرد \"}"}
+{"level":"info","ts":"2025-09-06T17:26:20.943+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T17:26:21.072+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T17:26:21.714+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T17:26:21.715+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:30:08.897+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTI2MDMsImlhdCI6MTc1NzE2NjIwM30.wqPVVAw6ViQx4uaQ3_X7sZB0eIeGDnS9KKK3M0mtFzI"}
+{"level":"info","ts":"2025-09-06T17:30:08.916+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 Preparing MongoListing","listing_id":4,"title":"samsung A51","city_id":8,"city_name":"تهران","category_id":2,"category_name":"موبایل و تبلت"}
+{"level":"info","ts":"2025-09-06T17:30:10.539+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"4\",\"title\":\"samsung A51\"}"}
+{"level":"info","ts":"2025-09-06T17:41:36.089+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T17:41:36.223+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T17:41:36.845+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T17:41:36.846+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:43:32.734+0330","caller":"middlewares/auth.go:20","msg":"JWT validated successfully","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTI2MDMsImlhdCI6MTc1NzE2NjIwM30.wqPVVAw6ViQx4uaQ3_X7sZB0eIeGDnS9KKK3M0mtFzI"}
+{"level":"info","ts":"2025-09-06T17:43:34.387+0330","caller":"handler/createlistinghandler.go:143","msg":"✅ Message sent successfully","message":"{\"id\":\"5\",\"title\":\"ساعت دیواری \"}"}
+{"level":"info","ts":"2025-09-06T17:46:10.682+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T17:46:10.820+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T17:46:11.463+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T17:46:11.465+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:48:28.273+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T17:48:28.377+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T17:48:29.016+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T17:48:29.018+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:50:45.418+0330","caller":"cmd/main.go:18","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-06T17:50:45.525+0330","caller":"cmd/main.go:26","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-06T17:50:46.172+0330","caller":"cmd/main.go:29","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-06T17:50:46.175+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-06T17:51:06.996+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T17:51:07.000+0330","caller":"handler/otp_handler.go:24","msg":"Generated OTP","phone":"09911732328","otp":"493782"}
+{"level":"info","ts":"2025-09-06T17:51:07.004+0330","caller":"handler/otp_handler.go:24","msg":"OTP sent successfully","phone":"09911732328","otp":"493782"}
+{"level":"info","ts":"2025-09-06T17:51:14.524+0330","caller":"handler/otp_handler.go:46","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T17:51:14.524+0330","caller":"handler/otp_handler.go:56","msg":"JWT generated successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-06T17:51:14.524+0330","caller":"gin@v1.10.1/context.go:185","msg":"Generated JWT for phone","phone":"09911732328","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZSI6IjA5OTExNzMyMzI4Iiwicm9sZSI6InVzZXIiLCJleHAiOjE3NTcyNTQ4NzQsImlhdCI6MTc1NzE2ODQ3NH0.sBc8SL28KcUe2azKDNS_YpgzBSfXZfJmh-Ijna7QYzc"}

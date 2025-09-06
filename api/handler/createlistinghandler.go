@@ -118,15 +118,6 @@ func CreateListingHandler(c *gin.Context) {
 	mongoClient := db.GetMongoClient()
 	collection := mongoClient.Database("MarketplaceSearch").Collection("ads")
 
-	logging.GetLogger().Infow("📦 Preparing MongoListing",
-		"listing_id", listing.ID,
-		"title", listing.Title,
-		"city_id", city.ID,
-		"city_name", city.Name,
-		"category_id", category.ID,
-		"category_name", category.Name,
-	)
-
 	mongoAd := model.MongoListing{
 		ID:          listing.ID,
 		Title:       listing.Title,

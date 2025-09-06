@@ -28,7 +28,9 @@ func SetupRoutes() *gin.Engine {
 		api.POST("/listings", middlewares.AuthMiddleware(), handler.CreateListingHandler)
 		api.GET("/listings", handler.GetListingsHandler)
 
-		api.GET("/search", handler.SearchListingsHandler)
+		api.GET("/search", handler.SearchListingsHandler)  
+
+		api.GET("/active-list",handler.GetActiveListingsHandler)
 
 		// داده‌ها
 		api.GET("/categories", handler.GetCategories)
