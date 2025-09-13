@@ -23,15 +23,6 @@ func InitDb() error {
 	return nil
 }
 
-// func CloseDb() {
-
-// 	if sqlDB, err := dbClient.DB(); err == nil {
-// 		sqlDB.Close()
-// 	} else {
-// 		log.Println("Error closing the database:", err)
-// 	}
-// }
-
 func GetDb() *gorm.DB {
 	return DB
 }

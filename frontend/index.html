@@ -6,7 +6,6 @@
   <title>ورود شماره موبایل</title>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet" />
   <style>
-    /* استایل‌ها همون قبلی هستن، نیازی به تغییر نیست */
     body {
       font-family: 'Vazirmatn', Tahoma, sans-serif;
       background: linear-gradient(135deg, #667eea, #764ba2);
@@ -53,7 +52,6 @@
       padding: 14px;
       border: none;
       border-radius: 8px;
-      background: #6c5ce7;
       font-size: 18px;
       color: white;
       cursor: pointer;
@@ -61,7 +59,19 @@
       font-weight: 600;
     }
 
-    button:hover {
+    #submitBtn {
+      background: #00b894; /* ✅ سبز */
+    }
+
+    #submitBtn:hover {
+      background: #009e7a; /* ✅ سبز تیره‌تر */
+    }
+
+    #verifyBtn {
+      background: #6c5ce7; /* رنگ اصلی */
+    }
+
+    #verifyBtn:hover {
       background: #5a4bcf;
     }
 
@@ -137,37 +147,36 @@
       showMessage("ارتباط با سرور برقرار نشد", "error");
     }
   });
-verifyBtn.addEventListener("click", async () => {
-  const phone = phoneInput.value.trim();
-  const otp = otpInput.value.trim();
-  if (!otp) return showMessage("کد را وارد کنید", "error");
 
-  try {
-    const res = await fetch("/api/verify-otp", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ phone, otp })
-    });
+  verifyBtn.addEventListener("click", async () => {
+    const phone = phoneInput.value.trim();
+    const otp = otpInput.value.trim();
+    if (!otp) return showMessage("کد را وارد کنید", "error");
 
-    const data = await res.json();
-    if (res.ok && data.valid) {
-      showMessage(data.message, "success");
-      window.location.href = "/dashboard"; // ✅ این خط هدایت
-    } else {
-      showMessage(data.message || "کد اشتباه است", "error");
+    try {
+      const res = await fetch("/api/verify-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ phone, otp })
+      });
+
+      const data = await res.json();
+      if (res.ok && data.valid) {
+        showMessage(data.message, "success");
+        window.location.href = "/dashboard";
+      } else {
+        showMessage(data.message || "کد اشتباه است", "error");
+      }
+    } catch (err) {
+      showMessage("ارتباط با سرور برقرار نشد", "error");
     }
-  } catch (err) {
-    showMessage("ارتباط با سرور برقرار نشد", "error");
-  }
-});
-
+  });
 
   function showMessage(msg, type) {
     messageBox.textContent = msg;
     messageBox.className = `message ${type}`;
   }
 </script>
-
 
 </body>
 </html>

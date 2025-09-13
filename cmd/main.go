@@ -7,12 +7,13 @@ import (
 	"MarketPlace/data/db/migration"
 	"MarketPlace/logging" // اضافه شد: پکیج لاگر خودمون
 	"MarketPlace/pkg/metrics"
+	"MarketPlace/services"
 )
 
 func main() {
 	// 🚀 راه‌اندازی Logger
-	logging.InitLogger()       // فقط یک بار لازمه
-	log := logging.GetLogger() // گرفتن logger برای استفاده راحت
+	logging.InitLogger()
+	log := logging.GetLogger()
 
 	// اتصال به DB
 	if err := db.InitDb(); err != nil {
@@ -25,20 +26,25 @@ func main() {
 	// راه‌اندازی Redis
 	cache.InitRedis()
 
+	// بارگذاری کلیدهای JWT
+	if err := services.InitJWTKeys("keys/private.pem", "keys/public.pem"); err != nil {
+		log.Fatalf("❌ خطا در بارگذاری کلیدهای JWT: %v", err)
+	}
+
+	// ثبت متریک‌ها
 	metrics.RegisterAll()
+
+	// اتصال به MongoDB
 	if err := db.InitMongo(); err != nil {
 		log.Fatalf("❌ failed to connect to MongoDB: %v", err)
 	}
 
-	// ثبت مسیرها و گرفتن Engine
+	// ثبت مسیرها
 	r := router.SetupRoutes()
 
-	// اجرای سرور Gin
 	log.Infow("🚀 سرور روی پورت 8080 اجرا شد")
 
-	// اگر سرور نتوانست اجرا شود
 	if err := r.Run("0.0.0.0:8080"); err != nil {
 		log.Fatalf("❌ سرور نتوانست اجرا شود: %v", err)
 	}
-
 }

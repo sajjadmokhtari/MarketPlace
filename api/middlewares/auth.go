@@ -7,33 +7,46 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+
+
 func AuthMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		// گرفتن کوکی توکن
-		token, err := c.Cookie("token")
-		if err != nil {
-			c.JSON(http.StatusUnauthorized, gin.H{"message": "توکن یافت نشد"})
-			c.Abort()
-			return
-		}
+    return func(c *gin.Context) {
+        // گرفتن کوکی توکن
+        token, err := c.Cookie("auth_token") // هماهنگ با SetAuthCookie
+        if err != nil || token == "" {
+            c.JSON(http.StatusUnauthorized, gin.H{"message": "توکن یافت نشد"})
+            c.Abort()
+            return
+        }
 
-		claims, err := services.ValidateJWT(token)
-		if err != nil {
-			c.JSON(http.StatusUnauthorized, gin.H{"message": "توکن نامعتبر است"})
-			c.Abort()
-			return
-		}
+        // اعتبارسنجی توکن
+        claims, err := services.ValidateJWT(token)
+        if err != nil {
+            c.JSON(http.StatusUnauthorized, gin.H{"message": "توکن نامعتبر است"})
+            c.Abort()
+            return
+        }
 
-		// ذخیره شماره و نقش داخل کانتکست Gin
-		c.Set("userPhone", claims.Phone)
-		c.Set("userRole", claims.Role)
+        // بررسی لیست سیاه با jti
+        isBlacklisted, err := services.IsTokenBlacklisted(claims.ID)
+        if err != nil {
+            c.JSON(http.StatusInternalServerError, gin.H{"message": "خطا در بررسی لیست سیاه"})
+            c.Abort()
+            return
+        }
+        if isBlacklisted {
+            c.JSON(http.StatusUnauthorized, gin.H{"message": "توکن باطل شده است"})
+            c.Abort()
+            return
+        }
 
-		c.Next()
-	}
+        // ذخیره شماره و نقش داخل کانتکست Gin
+        c.Set("userPhone", claims.Phone)
+        c.Set("userRole", claims.Role)
+
+        c.Next()
+    }
 }
-
-
-
 
 
 func AdminMiddleware() gin.HandlerFunc {

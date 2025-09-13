@@ -1,117 +1,117 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>داشبورد | MarketPlace</title>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-  :root {
-    --bg1: #667eea;
-    --bg2: #764ba2;
-    --panel: rgba(255,255,255,0.15);
-    --border: rgba(255,255,255,0.25);
-    --text: #fff;
-    --muted: rgba(255,255,255,0.85);
-    --btn: #10b981;
-    --btn-hover: #34d399;
-    --danger: #ef4444;
-    --danger-hover: #dc2626;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; height: 100%; font-family: 'Vazirmatn', Tahoma, sans-serif; }
-  body {
-    background: linear-gradient(135deg, var(--bg1), var(--bg2));
-    color: var(--text);
-    display: flex;
-    flex-direction: column;
-  }
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 20px;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 700;
-    font-size: 18px;
-  }
-  .brand .dot {
-    width: 10px;
-    height: 10px;
-    background: var(--btn);
-    border-radius: 50%;
-    box-shadow: 0 0 10px #fff8;
-  }
-  .actions {
-    display: flex;
-    gap: 10px;
-  }
-  .btn {
-    background: var(--btn);
-    color: #fff;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-decoration: none;
-  }
-  .btn:hover { background: var(--btn-hover); }
-  .btn-danger {
-    background: var(--danger);
-  }
-  .btn-danger:hover { background: var(--danger-hover); }
-  .container {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 0 16px;
-    flex: 1;
-  }
-  .grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  }
-  .card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 20px;
-    text-align: center;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-    transition: transform 0.2s, background 0.3s;
-    cursor: pointer;
-  }
-  .card:hover {
-    transform: translateY(-4px);
-    background: rgba(255,255,255,0.25);
-  }
-  .card i {
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: var(--muted);
-  }
-  .card-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 6px;
-  }
-  .card-value {
-    font-size: 20px;
-    font-weight: 700;
-    transition: all 0.5s ease;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>داشبورد | MarketPlace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg1: #667eea;
+      --bg2: #764ba2;
+      --panel: rgba(255,255,255,0.15);
+      --border: rgba(255,255,255,0.25);
+      --text: #fff;
+      --muted: rgba(255,255,255,0.85);
+      --btn: #10b981;
+      --btn-hover: #34d399;
+      --danger: #ef4444;
+      --danger-hover: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; font-family: 'Vazirmatn', Tahoma, sans-serif; }
+    body {
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .brand .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--btn);
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff8;
+    }
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      background: var(--btn);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .btn:hover { background: var(--btn-hover); }
+    .btn-danger {
+      background: var(--danger);
+    }
+    .btn-danger:hover { background: var(--danger-hover); }
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 0 16px;
+      flex: 1;
+    }
+    .grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      transition: transform 0.2s, background 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.25);
+    }
+    .card i {
+      font-size: 28px;
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .card-value {
+      font-size: 20px;
+      font-weight: 700;
+      transition: all 0.5s ease;
+    }
+  </style>
 </head>
 <body>
 
@@ -122,7 +122,6 @@
   </div>
   <div class="actions">
     <a class="btn" href="/order"><i class="fa fa-plus"></i> ثبت آگهی</a>
-    <!-- دکمه خروج -->
     <button class="btn btn-danger" id="logoutBtn"><i class="fa fa-sign-out-alt"></i> خروج</button>
   </div>
 </header>
@@ -152,7 +151,6 @@
 </main>
 
 <script>
-// انیمیشن شمارش عدد
 function animateCount(el, target) {
   let current = 0;
   const step = Math.ceil(target / 50);
@@ -166,7 +164,6 @@ function animateCount(el, target) {
   }, 15);
 }
 
-// دریافت تعداد آگهی‌های فعال
 async function loadActiveListingsCount() {
   try {
     const res = await fetch('/api/active-list');
@@ -177,7 +174,6 @@ async function loadActiveListingsCount() {
   }
 }
 
-// دریافت سایر آمار
 async function loadOtherCounts() {
   try {
     const res = await fetch('/api/pending-list');
@@ -196,10 +192,30 @@ async function loadOtherCounts() {
   }
 }
 
-// دکمه خروج
-document.getElementById('logoutBtn').addEventListener('click', () => {
-  // می‌تونی اینجا درخواست logout به سرور بزنی اگر داری
-  window.location.href = '/';
+// دکمه خروج واقعی با لاگ‌گذاری و دیباگ
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+  try {
+    console.log("در حال ارسال درخواست logout...");
+
+    const res = await fetch('/api/logout', {
+      method: 'POST',
+      credentials: 'include'
+    });
+
+    const data = await res.json();
+
+    console.log("پاسخ سرور:", data);
+
+    if (res.ok) {
+      alert(data.message || "✅ خروج با موفقیت انجام شد");
+      window.location.href = '/';
+    } else {
+      alert(data.error || "❌ خطا در خروج از حساب");
+    }
+  } catch (err) {
+    console.error("خطا در logout:", err);
+    alert("❌ ارتباط با سرور برقرار نشد");
+  }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
