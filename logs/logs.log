@@ -22,3 +22,12 @@
 {"level":"info","ts":"2025-09-13T12:13:34.804+0330","caller":"handler/otp_handler.go:21","msg":"OTP sent successfully","phone":"09911732328","otp":"559262"}
 {"level":"info","ts":"2025-09-13T12:13:49.573+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
 {"level":"info","ts":"2025-09-13T12:13:49.578+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-13T20:39:57.419+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-13T20:39:57.584+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-13T20:39:57.620+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-13T20:39:57.622+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-13T20:40:40.028+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-13T20:40:40.036+0330","caller":"handler/otp_handler.go:21","msg":"Generated OTP","phone":"09911732328","otp":"831499"}
+{"level":"info","ts":"2025-09-13T20:40:40.047+0330","caller":"handler/otp_handler.go:21","msg":"OTP sent successfully","phone":"09911732328","otp":"831499"}
+{"level":"info","ts":"2025-09-13T20:40:52.438+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-13T20:40:52.444+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}

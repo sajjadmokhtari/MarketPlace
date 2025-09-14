@@ -33,7 +33,7 @@ func GenerateJWT(phone, role string) (string, error) {
         Phone: phone,
         Role:  role,
         RegisteredClaims: jwt.RegisteredClaims{
-            ExpiresAt: jwt.NewNumericDate(time.Now().Add(1 * time.Minute)),
+            ExpiresAt: jwt.NewNumericDate(time.Now().Add(15 * time.Minute)),
             IssuedAt:  jwt.NewNumericDate(time.Now()),
             ID:        utils.GenerateJTI(),
             Issuer:    "your-app",

@@ -26,7 +26,7 @@ func main() {
 	// راه‌اندازی Redis
 	cache.InitRedis()
 
-	// بارگذاری کلیدهای JWT
+	// بار گذاری کلید ها برای  استفاده در امضا  توکن
 	if err := services.InitJWTKeys("keys/private.pem", "keys/public.pem"); err != nil {
 		log.Fatalf("❌ خطا در بارگذاری کلیدهای JWT: %v", err)
 	}

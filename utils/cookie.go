@@ -18,7 +18,7 @@ func SetAuthCookie(c *gin.Context, token string, maxAge int) {
 	})
 }
 
-func GetAuthCookie(c *gin.Context) (string, error) {
+func GetAuthCookie(c *gin.Context) (string, error) {//مقدار کوکی رو میخونه 
 	return c.Cookie("auth_token")
 }
 
@@ -34,6 +34,6 @@ func SetRefreshCookie(c *gin.Context, token string, maxAge int) {
 	})
 }
 
-func GetRefreshCookie(c *gin.Context) (string, error) {
+func GetRefreshCookie(c *gin.Context) (string, error) {//مقدار کوکی رو میخونه 
 	return c.Cookie("refresh_token")
 }
