@@ -3,6 +3,8 @@ package handler
 import (
 	"MarketPlace/logging"
 	"MarketPlace/services"
+	"MarketPlace/validations"
+
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -18,12 +20,17 @@ func SendOtpHandler(c *gin.Context) {
 
 	logging.GetLogger().Infow("SendOtpHandler received phone", "phone", req.Phone)
 
+	if !validations.CheckIranianMobile(req.Phone) {
+		logging.GetLogger().Errorw("Mobile is not valid", "phone", req.Phone)
+		c.JSON(http.StatusBadRequest, Response{Valid: false, Message: "شماره موبایل معتبر نیست"})
+		return
+	}
+
 	if err := services.SendOTP(req.Phone); err != nil {
 		logging.GetLogger().Errorw("Error sending OTP", "error", err, "phone", req.Phone)
 		c.JSON(http.StatusInternalServerError, Response{Valid: false, Message: "خطا در ارسال OTP"})
 		return
 	}
-	
 
 	c.JSON(http.StatusOK, Response{Valid: true, Message: "کد OTP ارسال شد"})
 }

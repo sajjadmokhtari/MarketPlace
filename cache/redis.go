@@ -32,7 +32,7 @@ func InitRedis() {
 // ذخیره OTP با انقضای ۱ دقیقه
 func SetOTP(phone string, otp string) error {
 	key := "otp:" + phone
-	err := Client.Set(ctx, key, otp, 1*time.Minute).Err()
+	err := Client.Set(ctx, key, otp, 2*time.Minute).Err()
 	if err != nil {
 		logging.GetLogger().Errorw("❌ Failed to save OTP in Redis", "phone", phone, "error", err)
 	}
@@ -73,13 +73,12 @@ func CanSendOTP(phone string) bool {
 		logging.GetLogger().Errorw("❌ Failed to parse last OTP timestamp", "phone", phone, "error", err)
 		return true
 	}
-	return time.Now().Unix()-lastTime >= 60
+	return time.Now().Unix()-lastTime >= 30 // ← تغییر فاصله به ۳۰ ثانیه
 }
 
-// ثبت زمان ارسال OTP
 func MarkOTPSent(phone string) {
 	key := "otp:last:" + phone
-	err := Client.Set(ctx, key, time.Now().Unix(), 10*time.Minute).Err()
+	err := Client.Set(ctx, key, time.Now().Unix(), 1*time.Hour).Err() // ← TTL برای ثبت زمان آخرین ارسال
 	if err != nil {
 		logging.GetLogger().Errorw("❌ Failed to mark OTP sent", "phone", phone, "error", err)
 	}
@@ -104,12 +103,60 @@ func OTPRequestCount(phone string) int {
 	return count
 }
 
-// اگه تو ۱۰ دقیقه ۵ بار درخواست بزنه، اینجا می‌فهمی و می‌تونی جلوشو بگیری.
 func IncrementOTPRequest(phone string) {
 	key := "otp:count:" + phone
 	err := Client.Incr(ctx, key).Err()
 	if err != nil {
 		logging.GetLogger().Errorw("❌ Failed to increment OTP request count", "phone", phone, "error", err)
 	}
-	Client.Expire(ctx, key, 10*time.Minute)
+	Client.Expire(ctx, key, 1*time.Hour) // ← تغییر TTL به ۱ ساعت
+}
+
+func IncrementFailedAttempts(phone string) {
+	key := "otp:fail:" + phone
+	err := Client.Incr(ctx, key).Err()
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to increment failed attempts", "phone", phone, "error", err)
+	}
+	Client.Expire(ctx, key, 1*time.Hour) // ← TTL برای شمارش تلاش‌ها
+}
+
+func GetFailedAttempts(phone string) int {
+	key := "otp:fail:" + phone
+	countStr, err := Client.Get(ctx, key).Result()
+	if err == redis.Nil {
+		return 0
+	}
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to get failed attempts", "phone", phone, "error", err)
+		return 0
+	}
+	count, err := strconv.Atoi(countStr)
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to parse failed attempts", "phone", phone, "error", err)
+		return 0
+	}
+	return count
+}
+
+func BlockPhone(phone string) {
+	key := "otp:block:" + phone
+	err := Client.Set(ctx, key, "true", 15*time.Minute).Err() // ← بلاک موقت ۱۵ دقیقه
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to block phone", "phone", phone, "error", err)
+	}
+}
+
+func IsPhoneBlocked(phone string) bool {
+	key := "otp:block:" + phone
+	_, err := Client.Get(ctx, key).Result()
+	return err != redis.Nil
+}
+
+func ResetFailedAttempts(phone string) {
+	key := "otp:fail:" + phone
+	err := Client.Del(ctx, key).Err()
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to reset failed attempts", "phone", phone, "error", err)
+	}
 }

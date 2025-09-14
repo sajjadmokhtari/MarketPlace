@@ -1,77 +1,110 @@
 package services
 
 import (
-	"errors"
-	"log"
-	"math/rand"
-	"time"
-
 	"MarketPlace/cache"
 	"MarketPlace/logging"
+	"crypto/rand"
+	"errors"
+	"math/big"
 )
 
-var r = rand.New(rand.NewSource(time.Now().UnixNano()))
+func GenerateOTP() (string, error) {
+	const digits = "0123456789"
+	const length = 6
+	otp := make([]byte, length)
 
-// تولید OTP شش رقمی
-func GenerateOTP() string {
-	otp := ""
-	for i := 0; i < 6; i++ {
-		otp += string('0' + rune(r.Intn(10)))
+	for i := 0; i < length; i++ {
+		n, err := rand.Int(rand.Reader, big.NewInt(int64(len(digits))))
+		if err != nil {
+			return "", err
+		}
+		otp[i] = digits[n.Int64()]
 	}
-	return otp
+
+	return string(otp), nil
 }
 
-// ارسال OTP با محدودسازی درخواست‌ها
 func SendOTP(phone string) error {
 	logger := logging.GetLogger()
 
-	// بررسی محدودیت زمانی
-	if !cache.CanSendOTP(phone) {
-		logger.Infow("OTP request blocked: please try later", "phone", phone)
-		return errors.New("لطفاً کمی صبر کنید و دوباره تلاش کنید")
+	// بررسی بلاک شدن شماره
+	if cache.IsPhoneBlocked(phone) {
+		logger.Warnw("Phone temporarily blocked due to failed attempts", "phone", phone)
+		return errors.New("شماره شما به دلیل تلاش‌های ناموفق موقتاً بلاک شده است")
 	}
 
-	// بررسی تعداد درخواست‌ها در ۱۰ دقیقه اخیر
+	// بررسی فاصله زمانی از آخرین ارسال
+	if !cache.CanSendOTP(phone) {
+		logger.Infow("OTP request blocked: please wait", "phone", phone)
+		return errors.New("لطفاً حداقل ۳۰ ثانیه بین درخواست‌ها فاصله بگذارید")
+	}
+
+	// بررسی تعداد ارسال در یک ساعت
 	if cache.OTPRequestCount(phone) >= 5 {
 		logger.Infow("OTP request limit reached", "phone", phone)
-		return errors.New("تعداد درخواست‌های مجاز در ۱۰ دقیقه گذشته تمام شده است")
+		return errors.New("حداکثر تعداد ارسال OTP در یک ساعت انجام شده است")
 	}
 
-	otp := GenerateOTP()
-	logger.Infow("Generated OTP", "phone", phone, "otp", otp)
-	log.Println("ots is: ", otp)
+	// تولید OTP امن
+	otp, err := GenerateOTP()
+	if err != nil {
+		logger.Errorw("Failed to generate OTP", "phone", phone, "error", err)
+		return errors.New("خطا در تولید کد")
+	}
 
-	// ذخیره OTP در cache
+	// ذخیره OTP در کش با TTL دو دقیقه
 	if err := cache.SetOTP(phone, otp); err != nil {
 		logger.Errorw("Failed to save OTP in cache", "phone", phone, "error", err)
-		return err
+		return errors.New("خطا در ذخیره‌سازی OTP")
 	}
 
-	// ثبت زمان و افزایش شمارش درخواست
-	cache.MarkOTPSent(phone)
-	cache.IncrementOTPRequest(phone)
+	// ثبت زمان ارسال و افزایش شمارش
+	cache.MarkOTPSent(phone)         // ذخیره زمان آخرین ارسال
+	cache.IncrementOTPRequest(phone) // افزایش شمارش در بازه یک‌ساعته
 
-	logger.Infow("OTP sent successfully", "phone", phone, "otp", otp)
+	// لاگ کردن OTP (فعلاً چون پیامک نداریم)
+	logger.Infow("OTP generated and logged", "phone", phone, "otp", otp)
+
 	return nil
 }
 
-// اعتبارسنجی OTP
 func VerifyOTP(phone, otp string) error {
 	logger := logging.GetLogger()
 
+	// بررسی بلاک بودن شماره
+	if cache.IsPhoneBlocked(phone) {
+		logger.Warnw("Phone is blocked due to failed attempts", "phone", phone)
+		return errors.New("شماره شما به دلیل تلاش‌های ناموفق موقتاً بلاک شده است")
+	}
+
+	// دریافت OTP ذخیره‌شده
 	storedOtp, err := cache.GetOTP(phone)
 	if err != nil {
 		logger.Errorw("OTP not found or expired", "phone", phone, "error", err)
 		return errors.New("کد OTP منقضی شده یا موجود نیست")
 	}
 
+	// مقایسه OTP
 	if storedOtp != otp {
 		logger.Infow("OTP mismatch", "phone", phone, "provided_otp", otp, "stored_otp", storedOtp)
+
+		// افزایش شمارش تلاش‌های ناموفق
+		cache.IncrementFailedAttempts(phone)
+
+		// بررسی تعداد تلاش‌ها
+		if cache.GetFailedAttempts(phone) >= 3 {
+			cache.BlockPhone(phone)
+			logger.Warnw("Phone blocked due to repeated OTP failures", "phone", phone)
+			return errors.New("شماره شما به دلیل ۳ بار ورود اشتباه موقتاً بلاک شده است")
+		}
+
 		return errors.New("کد OTP نادرست است")
 	}
 
-	// حذف OTP پس از تایید موفق
+	// موفقیت: حذف OTP و ریست تلاش‌ها
 	cache.DeleteOTP(phone)
+	cache.ResetFailedAttempts(phone)
+
 	logger.Infow("OTP verified successfully", "phone", phone)
 	return nil
 }

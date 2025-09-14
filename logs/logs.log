@@ -31,3 +31,52 @@
 {"level":"info","ts":"2025-09-13T20:40:40.047+0330","caller":"handler/otp_handler.go:21","msg":"OTP sent successfully","phone":"09911732328","otp":"831499"}
 {"level":"info","ts":"2025-09-13T20:40:52.438+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
 {"level":"info","ts":"2025-09-13T20:40:52.444+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:04:22.717+0330","caller":"cmd/main.go:19","msg":"❌ failed to connect to database","error":"failed to connect to `user=postgres database=MarketPlace_db`: 127.0.0.1:5432 (127.0.0.1): dial error: dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"fatal","ts":"2025-09-15T00:04:22.717+0330","caller":"runtime/proc.go:272","msg":"❌ failed to connect to database: failed to connect to `user=postgres database=MarketPlace_db`: 127.0.0.1:5432 (127.0.0.1): dial error: dial tcp 127.0.0.1:5432: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"info","ts":"2025-09-15T00:06:22.693+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-15T00:06:22.983+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-15T00:06:23.669+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-15T00:06:23.673+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-15T00:10:34.064+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-15T00:10:34.075+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"711016"}
+{"level":"info","ts":"2025-09-15T00:10:47.492+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-15T00:10:47.498+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-15T00:11:39.271+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-15T00:11:39.286+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"945811"}
+{"level":"error","ts":"2025-09-15T00:14:21.800+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:21.828+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:26.731+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:26.731+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:27.518+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:27.518+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:28.231+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:28.231+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:34.615+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:34.615+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:36.084+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:36.084+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:37.768+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:37.768+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:39.246+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:39.246+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:40.453+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:40.453+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:14:41.913+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP not found or expired","phone":"09911732328","error":"redis: nil"}
+{"level":"error","ts":"2025-09-15T00:14:41.913+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP منقضی شده یا موجود نیست","phone":"09911732328"}
+{"level":"info","ts":"2025-09-15T00:15:47.770+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-15T00:15:47.781+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"467530"}
+{"level":"info","ts":"2025-09-15T00:15:51.798+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP mismatch","phone":"09911732328","provided_otp":"2342342","stored_otp":"467530"}
+{"level":"error","ts":"2025-09-15T00:15:51.802+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-09-15T00:15:54.248+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP mismatch","phone":"09911732328","provided_otp":"4141414","stored_otp":"467530"}
+{"level":"error","ts":"2025-09-15T00:15:54.253+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"کد OTP نادرست است","phone":"09911732328"}
+{"level":"info","ts":"2025-09-15T00:15:55.984+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP mismatch","phone":"09911732328","provided_otp":"1234244","stored_otp":"467530"}
+{"level":"warn","ts":"2025-09-15T00:15:55.988+0330","caller":"handler/verify-otp-handler.go:22","msg":"Phone blocked due to repeated OTP failures","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:15:55.988+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"شماره شما به دلیل ۳ بار ورود اشتباه موقتاً بلاک شده است","phone":"09911732328"}
+{"level":"warn","ts":"2025-09-15T00:16:00.808+0330","caller":"handler/verify-otp-handler.go:22","msg":"Phone is blocked due to failed attempts","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:16:00.808+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"شماره شما به دلیل تلاش‌های ناموفق موقتاً بلاک شده است","phone":"09911732328"}
+{"level":"warn","ts":"2025-09-15T00:16:01.000+0330","caller":"handler/verify-otp-handler.go:22","msg":"Phone is blocked due to failed attempts","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:16:01.000+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"شماره شما به دلیل تلاش‌های ناموفق موقتاً بلاک شده است","phone":"09911732328"}
+{"level":"warn","ts":"2025-09-15T00:16:01.170+0330","caller":"handler/verify-otp-handler.go:22","msg":"Phone is blocked due to failed attempts","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:16:01.170+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"شماره شما به دلیل تلاش‌های ناموفق موقتاً بلاک شده است","phone":"09911732328"}
+{"level":"warn","ts":"2025-09-15T00:16:04.264+0330","caller":"handler/verify-otp-handler.go:22","msg":"Phone is blocked due to failed attempts","phone":"09911732328"}
+{"level":"error","ts":"2025-09-15T00:16:04.264+0330","caller":"gin@v1.10.1/context.go:185","msg":"OTP verification failed","error":"شماره شما به دلیل تلاش‌های ناموفق موقتاً بلاک شده است","phone":"09911732328"}
