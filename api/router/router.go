@@ -40,6 +40,12 @@ func SetupRoutes() *gin.Engine {
 		api.GET("/cities", handler.GetCities)
 	}
 
+	admin := r.Group("/admin")
+	admin.Use(middlewares.AuthMiddleware(), middlewares.AdminMiddleware()) //  هم باید طرف لاگین باشه هم ادمین
+	{
+		admin.GET("/test", handler.Test)
+	}
+
 	// صفحات HTML
 	r.GET("/", func(c *gin.Context) {
 		c.File("./frontend/index.html")

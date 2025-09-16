@@ -96,6 +96,13 @@ func CreateListingHandler(c *gin.Context) {
 
 	imageURL := "/uploads/" + handler.Filename
 
+	userIDVal, ok := c.Get("userID")
+	if !ok {
+		c.JSON(http.StatusUnauthorized, gin.H{"message": "شناسه کاربر یافت نشد"})
+		return
+	}
+	userID := userIDVal.(uint)
+
 	listing := model.Listing{
 		Title:       title,
 		Price:       price,
@@ -104,6 +111,7 @@ func CreateListingHandler(c *gin.Context) {
 		CityID:      city.ID,
 		CategoryID:  category.ID,
 		Phone:       phone,
+		UserID:      userID, // 👈 این خط مهمه
 	}
 
 	// 📊 متریک ایجاد آگهی

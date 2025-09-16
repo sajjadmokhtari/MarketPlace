@@ -15,6 +15,7 @@ func Up_1() {
 		&model.City{},
 		&model.Category{},
 		&model.Listing{},
+	
 	)
 	if err != nil {
 

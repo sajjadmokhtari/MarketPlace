@@ -43,6 +43,8 @@ func AuthMiddleware() gin.HandlerFunc {
         // ذخیره شماره و نقش داخل کانتکست Gin
         c.Set("userPhone", claims.Phone)
         c.Set("userRole", claims.Role)
+       
+
 
         c.Next()
     }

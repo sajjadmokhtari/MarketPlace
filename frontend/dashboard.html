@@ -147,6 +147,11 @@
       <div class="card-title">پیام‌های خوانده‌نشده</div>
       <div class="card-value" id="unreadMessagesCount">0</div>
     </div>
+    <div class="card" onclick="checkAdminAccess()">
+      <i class="fa fa-user-shield"></i>
+      <div class="card-title">تست دسترسی ادمین</div>
+      <div class="card-value" id="adminTestResult">...</div>
+    </div>
   </div>
 </main>
 
@@ -192,20 +197,26 @@ async function loadOtherCounts() {
   }
 }
 
-// دکمه خروج واقعی با لاگ‌گذاری و دیباگ
+async function checkAdminAccess() {
+  try {
+    const res = await fetch('/admin/test', {
+      method: 'GET',
+      credentials: 'include'
+    });
+    const data = await res.json();
+    document.getElementById('adminTestResult').textContent = data.message || "✅ موفق";
+  } catch (err) {
+    document.getElementById('adminTestResult').textContent = "❌ دسترسی غیرمجاز یا خطا";
+  }
+}
+
 document.getElementById('logoutBtn').addEventListener('click', async () => {
   try {
-    console.log("در حال ارسال درخواست logout...");
-
     const res = await fetch('/api/logout', {
       method: 'POST',
       credentials: 'include'
     });
-
     const data = await res.json();
-
-    console.log("پاسخ سرور:", data);
-
     if (res.ok) {
       alert(data.message || "✅ خروج با موفقیت انجام شد");
       window.location.href = '/';
@@ -213,7 +224,6 @@ document.getElementById('logoutBtn').addEventListener('click', async () => {
       alert(data.error || "❌ خطا در خروج از حساب");
     }
   } catch (err) {
-    console.error("خطا در logout:", err);
     alert("❌ ارتباط با سرور برقرار نشد");
   }
 });

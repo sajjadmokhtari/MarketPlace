@@ -1,6 +1,8 @@
 package model
 
 import (
+	"time"
+
 	"gorm.io/gorm"
 )
 
@@ -30,6 +32,9 @@ type Listing struct {
 	CategoryID  uint     `gorm:"not null" json:"CategoryID"`              // شناسه دسته‌بندی
 	Category    Category `gorm:"foreignKey:CategoryID" json:"Category"`   // ارتباط با جدول دسته‌بندی
 	Phone       string   `gorm:"type:varchar(20);not null" json:"Phone"`  // شماره تماس
+
+	UserID uint `gorm:"not null" json:"UserID"`        // 👈 شناسه کاربر
+	User   User `gorm:"foreignKey:UserID" json:"User"` // 👈 ارتباط با جدول کاربر
 }
 
 type MongoListing struct {
@@ -41,4 +46,15 @@ type MongoListing struct {
 	Phone       string  `bson:"phone"`
 	City        string  `bson:"city"`
 	Category    string  `bson:"category"`
+}
+
+type User struct {
+	ID        uint   `gorm:"primaryKey"`
+	Phone     string `gorm:"uniqueIndex;not null"`
+	Role      string `gorm:"default:user"`
+	IsBlocked bool   `gorm:"default:false"`
+	CreatedAt time.Time
+	LastLogin *time.Time
+
+	Listings []Listing `gorm:"foreignKey:UserID"` // 👈 آگهی‌های متعلق به کاربر
 }

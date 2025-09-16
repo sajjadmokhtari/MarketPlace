@@ -87,7 +87,7 @@ func MarkOTPSent(phone string) {
 // شمارش تعداد درخواست‌های OTP در ۱۰ دقیقه اخیر
 func OTPRequestCount(phone string) int {
 	key := "otp:count:" + phone
-	countStr, err := Client.Get(ctx, key).Result()
+	countStr, err := Client.Get(ctx, key).Result()//مقدار شمارش رو  میخونه
 	if err == redis.Nil {
 		return 0
 	}
@@ -160,3 +160,7 @@ func ResetFailedAttempts(phone string) {
 		logging.GetLogger().Errorw("❌ Failed to reset failed attempts", "phone", phone, "error", err)
 	}
 }
+
+
+
+
