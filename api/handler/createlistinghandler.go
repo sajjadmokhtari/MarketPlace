@@ -101,6 +101,7 @@ func CreateListingHandler(c *gin.Context) {
 		c.JSON(http.StatusUnauthorized, gin.H{"message": "شناسه کاربر یافت نشد"})
 		return
 	}
+
 	userID := userIDVal.(uint)
 
 	listing := model.Listing{

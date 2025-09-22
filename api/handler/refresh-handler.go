@@ -24,7 +24,16 @@ func RefreshTokenHandler(c *gin.Context) {
         return
     }
 
-    newAccessToken, err := services.GenerateJWT(phone, "user")
+    // 📌 گرفتن اطلاعات کامل کاربر از دیتابیس
+    user, err := services.GetUserByPhone(phone)
+    if err != nil {
+        logging.GetLogger().Errorw("User not found during refresh", "error", err, "phone", phone)
+        c.JSON(http.StatusUnauthorized, gin.H{"error": "کاربر یافت نشد"})
+        return
+    }
+
+    // ساخت Access Token جدید با userID و role
+    newAccessToken, err := services.GenerateJWT(user.ID, user.Phone, user.Role)
     if err != nil {
         logging.GetLogger().Errorw("Failed to generate new access token", "error", err)
         c.JSON(http.StatusInternalServerError, gin.H{"error": "خطا در ساخت توکن جدید"})

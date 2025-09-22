@@ -43,7 +43,7 @@ func SetupRoutes() *gin.Engine {
 	admin := r.Group("/admin")
 	admin.Use(middlewares.AuthMiddleware(), middlewares.AdminMiddleware()) //  هم باید طرف لاگین باشه هم ادمین
 	{
-		admin.GET("/test", handler.Test)
+		//
 	}
 
 	// صفحات HTML

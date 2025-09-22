@@ -44,3 +44,80 @@
 {"level":"info","ts":"2025-09-16T15:18:05.852+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
 {"level":"info","ts":"2025-09-16T15:18:05.868+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09911732328"}
 {"level":"info","ts":"2025-09-16T15:18:05.871+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-16T15:20:49.408+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"error","ts":"2025-09-16T15:20:49.556+0330","caller":"cmd/main.go:24","msg":"failed to migrate database: %v","error":"ERROR: column \"user_id\" of relation \"listings\" contains null values (SQLSTATE 23502)"}
+{"level":"info","ts":"2025-09-16T15:20:49.562+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-16T15:20:50.207+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-16T15:20:50.213+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-16T15:21:07.103+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-16T15:21:07.114+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"679926"}
+{"level":"info","ts":"2025-09-16T15:21:17.818+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-16T15:21:17.854+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09911732328"}
+{"level":"info","ts":"2025-09-16T15:21:17.857+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T17:29:00.634+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"error","ts":"2025-09-22T17:29:00.916+0330","caller":"cmd/main.go:24","msg":"failed to migrate database: %v","error":"ERROR: column \"user_id\" of relation \"listings\" contains null values (SQLSTATE 23502)"}
+{"level":"info","ts":"2025-09-22T17:29:00.930+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-22T17:29:01.606+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-22T17:29:01.607+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-22T17:29:32.847+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T17:29:32.861+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"072431"}
+{"level":"info","ts":"2025-09-22T17:29:56.030+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T17:29:56.044+0330","caller":"handler/verify-otp-handler.go:33","msg":"User login time updated","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T17:29:56.046+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:20:38.261+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"error","ts":"2025-09-22T18:20:38.391+0330","caller":"cmd/main.go:24","msg":"failed to migrate database: %v","error":"ERROR: column \"user_id\" of relation \"listings\" contains null values (SQLSTATE 23502)"}
+{"level":"info","ts":"2025-09-22T18:20:38.397+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-22T18:20:39.041+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-22T18:20:39.044+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-22T18:21:08.425+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:21:08.434+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"072264"}
+{"level":"info","ts":"2025-09-22T18:21:21.702+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:21:21.709+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:21:21.711+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:26:32.254+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"error","ts":"2025-09-22T18:26:32.361+0330","caller":"cmd/main.go:24","msg":"failed to migrate database: %v","error":"ERROR: column \"user_id\" of relation \"listings\" contains null values (SQLSTATE 23502)"}
+{"level":"info","ts":"2025-09-22T18:26:32.369+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-22T18:26:33.004+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-22T18:26:33.009+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-22T18:28:40.202+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:28:40.209+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09155610894","otp":"591324"}
+{"level":"info","ts":"2025-09-22T18:28:48.748+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:28:48.770+0330","caller":"handler/verify-otp-handler.go:31","msg":"New user created","phone":"09155610894","role":"user"}
+{"level":"info","ts":"2025-09-22T18:28:48.776+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:32:38.178+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-22T18:32:38.301+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-22T18:32:38.957+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-22T18:32:38.961+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-22T18:32:58.859+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:32:58.867+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09155610894","otp":"568877"}
+{"level":"info","ts":"2025-09-22T18:33:12.754+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:33:12.765+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:33:12.771+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:33:33.864+0330","caller":"handler/createlistinghandler.go:153","msg":"✅ Message sent successfully","message":"{\"id\":\"1\",\"title\":\"مداد \"}"}
+{"level":"info","ts":"2025-09-22T18:33:35.341+0330","caller":"handler/createlistinghandler.go:153","msg":"✅ Message sent successfully","message":"{\"id\":\"2\",\"title\":\"مداد \"}"}
+{"level":"info","ts":"2025-09-22T18:40:25.587+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-22T18:40:25.729+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-22T18:40:26.375+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-22T18:40:26.376+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-22T18:40:58.387+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:40:58.395+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"337999"}
+{"level":"info","ts":"2025-09-22T18:41:14.686+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:41:14.689+0330","caller":"handler/otp_handler.go:29","msg":"OTP request blocked: please wait","phone":"09911732328"}
+{"level":"error","ts":"2025-09-22T18:41:14.689+0330","caller":"gin@v1.10.1/context.go:185","msg":"Error sending OTP","error":"لطفاً حداقل ۳۰ ثانیه بین درخواست‌ها فاصله بگذارید","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:41:17.638+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:41:17.651+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:41:17.657+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:41:38.228+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:41:38.236+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09155610894","otp":"463023"}
+{"level":"info","ts":"2025-09-22T18:41:46.007+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:41:46.013+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:41:46.016+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09155610894"}
+{"level":"info","ts":"2025-09-22T18:44:58.937+0330","caller":"handler/createlistinghandler.go:153","msg":"✅ Message sent successfully","message":"{\"id\":\"3\",\"title\":\"A51\"}"}
+{"level":"info","ts":"2025-09-22T18:45:00.401+0330","caller":"handler/createlistinghandler.go:153","msg":"✅ Message sent successfully","message":"{\"id\":\"4\",\"title\":\"A51\"}"}
+{"level":"info","ts":"2025-09-22T18:45:29.387+0330","caller":"handler/createlistinghandler.go:153","msg":"✅ Message sent successfully","message":"{\"id\":\"5\",\"title\":\"ماشین پراید \"}"}
+{"level":"info","ts":"2025-09-22T18:45:46.565+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:45:46.574+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"185991"}
+{"level":"info","ts":"2025-09-22T18:45:54.073+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:45:54.082+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:45:54.087+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-22T18:46:20.926+0330","caller":"handler/createlistinghandler.go:153","msg":"✅ Message sent successfully","message":"{\"id\":\"6\",\"title\":\"لبتاپ LOQ\"}"}
