@@ -121,3 +121,49 @@
 {"level":"info","ts":"2025-09-22T18:45:54.082+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09911732328"}
 {"level":"info","ts":"2025-09-22T18:45:54.087+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
 {"level":"info","ts":"2025-09-22T18:46:20.926+0330","caller":"handler/createlistinghandler.go:153","msg":"✅ Message sent successfully","message":"{\"id\":\"6\",\"title\":\"لبتاپ LOQ\"}"}
+{"level":"info","ts":"2025-09-27T22:34:58.873+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"fatal","ts":"2025-09-27T22:34:59.109+0330","caller":"cmd/main.go:27","msg":"❌ Failed to connect to Redis","error":"dial tcp 127.0.0.1:6379: connectex: No connection could be made because the target machine actively refused it."}
+{"level":"info","ts":"2025-09-27T22:37:01.819+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-27T22:37:01.940+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-27T22:37:02.005+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-27T22:37:02.006+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-27T22:37:22.806+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-27T22:37:22.820+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"770938"}
+{"level":"info","ts":"2025-09-27T22:37:39.591+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-27T22:37:39.613+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09911732328"}
+{"level":"info","ts":"2025-09-27T22:37:39.621+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-27T22:47:01.389+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-27T22:47:02.104+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-27T22:47:02.152+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-27T22:47:02.154+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-27T22:47:37.148+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09155610894"}
+{"level":"info","ts":"2025-09-27T22:47:37.156+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09155610894","otp":"707338"}
+{"level":"info","ts":"2025-09-27T22:47:49.749+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09155610894"}
+{"level":"info","ts":"2025-09-27T22:47:49.760+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09155610894"}
+{"level":"info","ts":"2025-09-27T22:47:49.765+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09155610894"}
+{"level":"info","ts":"2025-09-27T22:47:52.136+0330","caller":"gin@v1.10.1/context.go:185","msg":"ℹ️ کش Redis یافت نشد، خواندن از دیتابیس","key":"ads:all"}
+{"level":"info","ts":"2025-09-27T22:47:52.164+0330","caller":"gin@v1.10.1/context.go:185","msg":"✅ آگهی‌ها با موفقیت از دیتابیس خوانده شدند"}
+{"level":"info","ts":"2025-09-27T22:47:52.165+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 کش جدید ساخته شد و در Redis ذخیره شد","key":"ads:all","ttl":"60s"}
+{"level":"info","ts":"2025-09-27T22:51:10.813+0330","caller":"handler/createlistinghandler.go:152","msg":"✅ Message sent successfully","message":"{\"id\":\"7\",\"title\":\"گوشی note14\"}"}
+{"level":"info","ts":"2025-09-27T22:51:33.823+0330","caller":"gin@v1.10.1/context.go:185","msg":"ℹ️ کش Redis یافت نشد، خواندن از دیتابیس","key":"ads:all"}
+{"level":"info","ts":"2025-09-27T22:51:33.843+0330","caller":"gin@v1.10.1/context.go:185","msg":"✅ آگهی‌ها با موفقیت از دیتابیس خوانده شدند"}
+{"level":"info","ts":"2025-09-27T22:51:33.844+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 کش جدید ساخته شد و در Redis ذخیره شد","key":"ads:all","ttl":"60s"}
+{"level":"info","ts":"2025-09-27T23:44:33.191+0330","caller":"gin@v1.10.1/context.go:185","msg":"ℹ️ کش Redis یافت نشد، خواندن از دیتابیس","key":"ads:all"}
+{"level":"info","ts":"2025-09-27T23:44:33.212+0330","caller":"gin@v1.10.1/context.go:185","msg":"✅ آگهی‌ها با موفقیت از دیتابیس خوانده شدند"}
+{"level":"info","ts":"2025-09-27T23:44:33.221+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 کش جدید ساخته شد و در Redis ذخیره شد","key":"ads:all","ttl":"60s"}
+{"level":"info","ts":"2025-09-28T12:51:20.166+0330","caller":"cmd/main.go:19","msg":"✅ connected to database successfully","dsn":"host=127.0.0.1 user=postgres password=admin dbname=MarketPlace_db port=5432 sslmode=disable"}
+{"level":"info","ts":"2025-09-28T12:51:20.591+0330","caller":"cmd/main.go:27","msg":"✅ Connected to Redis successfully","addr":"127.0.0.1:6379"}
+{"level":"info","ts":"2025-09-28T12:51:20.708+0330","caller":"cmd/main.go:38","msg":"✅ connected to MongoDB successfully","uri":"mongodb://admin:password123@localhost:27018"}
+{"level":"info","ts":"2025-09-28T12:51:20.716+0330","caller":"runtime/proc.go:272","msg":"🚀 سرور روی پورت 8080 اجرا شد"}
+{"level":"info","ts":"2025-09-28T12:51:50.063+0330","caller":"gin@v1.10.1/context.go:185","msg":"SendOtpHandler received phone","phone":"09911732328"}
+{"level":"info","ts":"2025-09-28T12:51:50.075+0330","caller":"handler/otp_handler.go:29","msg":"OTP generated and logged","phone":"09911732328","otp":"553136"}
+{"level":"info","ts":"2025-09-28T12:52:10.091+0330","caller":"handler/verify-otp-handler.go:22","msg":"OTP verified successfully","phone":"09911732328"}
+{"level":"info","ts":"2025-09-28T12:52:10.112+0330","caller":"handler/verify-otp-handler.go:31","msg":"User login time updated","phone":"09911732328"}
+{"level":"info","ts":"2025-09-28T12:52:10.121+0330","caller":"gin@v1.10.1/context.go:185","msg":"User authenticated and tokens issued","phone":"09911732328"}
+{"level":"info","ts":"2025-09-28T12:52:12.569+0330","caller":"gin@v1.10.1/context.go:185","msg":"ℹ️ کش Redis یافت نشد، خواندن از دیتابیس","key":"ads:all"}
+{"level":"info","ts":"2025-09-28T12:52:12.623+0330","caller":"gin@v1.10.1/context.go:185","msg":"✅ آگهی‌ها با موفقیت از دیتابیس خوانده شدند"}
+{"level":"info","ts":"2025-09-28T12:52:12.635+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 کش جدید ساخته شد و در Redis ذخیره شد","key":"ads:all","ttl":"60s"}
+{"level":"info","ts":"2025-09-28T12:54:16.013+0330","caller":"gin@v1.10.1/context.go:185","msg":"ℹ️ کش Redis یافت نشد، خواندن از دیتابیس","key":"ads:all"}
+{"level":"info","ts":"2025-09-28T12:54:16.038+0330","caller":"gin@v1.10.1/context.go:185","msg":"✅ آگهی‌ها با موفقیت از دیتابیس خوانده شدند"}
+{"level":"info","ts":"2025-09-28T12:54:16.040+0330","caller":"gin@v1.10.1/context.go:185","msg":"📦 کش جدید ساخته شد و در Redis ذخیره شد","key":"ads:all","ttl":"60s"}
+{"level":"info","ts":"2025-09-28T12:54:50.223+0330","caller":"gin@v1.10.1/context.go:185","msg":"✅ پاسخ از کش Redis ارسال شد","key":"ads:all"}

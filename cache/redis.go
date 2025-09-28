@@ -2,9 +2,11 @@ package cache
 
 import (
 	"context"
+	"encoding/json"
 	"strconv"
 	"time"
 
+	"MarketPlace/data/model"
 	"MarketPlace/logging"
 
 	"github.com/redis/go-redis/v9"
@@ -87,7 +89,7 @@ func MarkOTPSent(phone string) {
 // شمارش تعداد درخواست‌های OTP در ۱۰ دقیقه اخیر
 func OTPRequestCount(phone string) int {
 	key := "otp:count:" + phone
-	countStr, err := Client.Get(ctx, key).Result()//مقدار شمارش رو  میخونه
+	countStr, err := Client.Get(ctx, key).Result() //مقدار شمارش رو  میخونه
 	if err == redis.Nil {
 		return 0
 	}
@@ -161,6 +163,26 @@ func ResetFailedAttempts(phone string) {
 	}
 }
 
+// ذخیره لیست آگهی‌ها در کش
+func SetListingsCache(key string, listings []model.Listing, ttl time.Duration) error {
+	data, err := json.Marshal(listings)
+	if err != nil {
+		logging.GetLogger().Errorw("❌ Failed to marshal listings", "error", err)
+		return err
+	}
+	return Client.Set(ctx, key, data, ttl).Err()
+}
 
-
-
+// خواندن لیست آگهی‌ها از کش
+func GetListingsCache(key string) ([]model.Listing, error) {
+	val, err := Client.Get(ctx, key).Result()
+	if err != nil {
+		return nil, err
+	}
+	var listings []model.Listing
+	if err := json.Unmarshal([]byte(val), &listings); err != nil {
+		logging.GetLogger().Errorw("❌ Failed to unmarshal listings", "error", err)
+		return nil, err
+	}
+	return listings, nil
+}
